@@ -7,7 +7,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityPlayerChecker;
 import com.countrygamer.auxiliaryobjects.lib.Reference;
 import com.countrygamer.core.block.BlockContainerBase;
@@ -50,15 +50,15 @@ public class BlockPlayerChecker extends BlockContainerBase {
 					z);
 			if (tileEnt.isActivePlayerOnline()) {
 				for (String name : tileEnt.activePlayerNames)
-					AuxiliaryObjects.log.info(name);
+					Capo.log.info(name);
 				return 15;
 			}
 			else {
-				AuxiliaryObjects.log.info("No online players");
+				Capo.log.info("No online players");
 			}
 		}
 		else {
-			AuxiliaryObjects.log.info("Error Getting TileEntityPlayerChecker");
+			Capo.log.info("Error Getting TileEntityPlayerChecker");
 		}
 		return 0;
 	}

@@ -15,7 +15,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityPlayerChecker;
 import com.countrygamer.core.Handler.AbstractPacket;
 

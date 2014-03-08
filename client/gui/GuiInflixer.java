@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityInflixer;
 import com.countrygamer.auxiliaryobjects.inventory.ContainerInflixer;
 import com.countrygamer.auxiliaryobjects.items.ItemMultiItem;
@@ -66,12 +66,12 @@ public class GuiInflixer extends GuiContainerBlockBase {
 		if (id == this.inflix.id) {
 			PacketTriggerInflixer packet = new PacketTriggerInflixer(this.tileEntInflix.xCoord,
 					this.tileEntInflix.yCoord, this.tileEntInflix.zCoord);
-			AuxiliaryObjects.packetChannel.sendToServer(packet);
+			Capo.packetChannel.sendToServer(packet);
 		}
 		if (id == this.partition.id) {
 			PacketTriggerInflixer packet = new PacketTriggerInflixer(this.tileEntInflix.xCoord,
 					this.tileEntInflix.yCoord, this.tileEntInflix.zCoord, 1, this.currentPartitionID);
-			AuxiliaryObjects.packetChannel.sendToServer(packet);
+			Capo.packetChannel.sendToServer(packet);
 		}
 	}
 	

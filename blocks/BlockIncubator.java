@@ -6,7 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.core.block.BlockContainerBase;
 
 import cpw.mods.fml.relauncher.Side;
@@ -21,7 +21,7 @@ public class BlockIncubator extends BlockContainerBase {
 	public boolean onBlockActivated(World world, int x, int y, int z,
 			EntityPlayer player, int side, float par7, float par8, float par9) {
 		if (!player.isSneaking()) {
-			player.openGui(AuxiliaryObjects.instance, 0, world, x, y, z);
+			player.openGui(Capo.instance, 0, world, x, y, z);
 			return true;
 		}
 		return false;

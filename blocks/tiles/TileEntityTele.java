@@ -15,7 +15,7 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.util.AxisAlignedBB;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.auxiliaryobjects.items.ItemTeleCore;
 import com.countrygamer.core.Core;
 import com.countrygamer.core.block.tiles.TileEntityInventoryBase;
@@ -60,7 +60,7 @@ public class TileEntityTele extends TileEntityInventoryBase {
 			break;
 		}
 		if (Core.DEBUG)
-			AuxiliaryObjects.log.info("Empty:" + this.isSlotEmpty(itemStack) + " Valid:"
+			Capo.log.info("Empty:" + this.isSlotEmpty(itemStack) + " Valid:"
 					+ valid);
 		return this.isSlotEmpty(itemStack) && valid;
 	}
@@ -123,7 +123,7 @@ public class TileEntityTele extends TileEntityInventoryBase {
 						CoreUtil.teleportPlayerToDimension(player, dimID);
 					}
 					CoreUtil.teleportPlayer(player, x, y, z,
-							this.inv[0].getItem() == AuxiliaryObjects.stableCore, false);
+							this.inv[0].getItem() == Capo.stableCore, false);
 				}
 			}
 		}

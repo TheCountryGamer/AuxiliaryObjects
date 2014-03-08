@@ -6,7 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityColorizer;
 import com.countrygamer.auxiliaryobjects.inventory.ContainerColorizer;
 import com.countrygamer.auxiliaryobjects.items.ItemMultiDye;
@@ -64,7 +64,7 @@ public class PacketSaveDyeColor extends AbstractPacket {
 				try {
 					color = Integer.parseInt(this.colorString, 16);
 				} catch (NumberFormatException e) {
-					AuxiliaryObjects.log.info("This is an error. Report to mod author.");
+					Capo.log.info("This is an error. Report to mod author.");
 					e.printStackTrace();
 				}
 				

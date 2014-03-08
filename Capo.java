@@ -75,11 +75,11 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MC_VERSION)
-public class AuxiliaryObjects implements IFuelHandler, IGuiHandler {
+public class Capo implements IFuelHandler, IGuiHandler {
 	
 	public static Logger				log						= Logger.getLogger(Reference.MOD_NAME);
 	@Instance(Reference.MOD_ID)
-	public static AuxiliaryObjects		instance;
+	public static Capo		instance;
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS,
 			serverSide = Reference.SERVER_PROXY_CLASS)
 	public static ServerProxy			proxy;
@@ -164,46 +164,46 @@ public class AuxiliaryObjects implements IFuelHandler, IGuiHandler {
 	}
 	
 	public void registerHandlers() {
-		MinecraftForge.EVENT_BUS.register(AuxiliaryObjects.instance);
-		GameRegistry.registerFuelHandler(AuxiliaryObjects.instance);
-		NetworkRegistry.INSTANCE.registerGuiHandler(AuxiliaryObjects.instance,
-				AuxiliaryObjects.instance);
+		MinecraftForge.EVENT_BUS.register(Capo.instance);
+		GameRegistry.registerFuelHandler(Capo.instance);
+		NetworkRegistry.INSTANCE.registerGuiHandler(Capo.instance,
+				Capo.instance);
 	}
 	
 	public void registerItems() {
 		this.registerArmor();
 		
-		AuxiliaryObjects.inventorySack = new ItemInventorySack(Reference.MOD_ID, "Player's Sack");
-		Core.addItemToTab(AuxiliaryObjects.inventorySack);
+		Capo.inventorySack = new ItemInventorySack(Reference.MOD_ID, "Player's Sack");
+		Core.addItemToTab(Capo.inventorySack);
 		
-		AuxiliaryObjects.multidye = new ItemMultiDye(Reference.MOD_ID, "MultiDye");
-		Core.addItemToTab(AuxiliaryObjects.multidye);
+		Capo.multidye = new ItemMultiDye(Reference.MOD_ID, "MultiDye");
+		Core.addItemToTab(Capo.multidye);
 		
-		AuxiliaryObjects.multiItem = new ItemMultiItem(Reference.MOD_ID, "MultiItem");
-		Core.addItemToTab(AuxiliaryObjects.multiItem);
+		Capo.multiItem = new ItemMultiItem(Reference.MOD_ID, "MultiItem");
+		Core.addItemToTab(Capo.multiItem);
 		
-		AuxiliaryObjects.unStableCore = new ItemTeleCore(Reference.MOD_ID,
-				AuxiliaryObjects.unStableCoreName);
-		Core.addItemToTab(AuxiliaryObjects.unStableCore);
+		Capo.unStableCore = new ItemTeleCore(Reference.MOD_ID,
+				Capo.unStableCoreName);
+		Core.addItemToTab(Capo.unStableCore);
 		
-		AuxiliaryObjects.stableCore = new ItemTeleCore(Reference.MOD_ID,
-				AuxiliaryObjects.stableCoreName);
-		Core.addItemToTab(AuxiliaryObjects.stableCore);
+		Capo.stableCore = new ItemTeleCore(Reference.MOD_ID,
+				Capo.stableCoreName);
+		Core.addItemToTab(Capo.stableCore);
 		
-		AuxiliaryObjects.talisman = new ItemBase(Reference.MOD_ID, "Talisman");
-		Core.addItemToTab(AuxiliaryObjects.talisman);
+		Capo.talisman = new ItemBase(Reference.MOD_ID, "Talisman");
+		Core.addItemToTab(Capo.talisman);
 		
-		AuxiliaryObjects.charm = new ItemCharm(Reference.MOD_ID, AuxiliaryObjects.charmNames);
-		Core.addItemToTab(AuxiliaryObjects.charm);
-		AuxiliaryObjects.addCharmRecipe(0, "Healing");
-		AuxiliaryObjects.addCharmRecipe(1, "Awkward");
-		AuxiliaryObjects.addCharmRecipe(2, "Speed");
-		AuxiliaryObjects.addCharmRecipe(3, "Jumping");
-		AuxiliaryObjects.addCharmRecipe(4, "Regeneration");
-		AuxiliaryObjects.addCharmRecipe(5, "Fire Resistance");
-		AuxiliaryObjects.addCharmRecipe(6, "Water Breathing");
-		AuxiliaryObjects.addCharmRecipe(7, "Invisibility");
-		AuxiliaryObjects.addCharmRecipe(8, "Night Vision");
+		Capo.charm = new ItemCharm(Reference.MOD_ID, Capo.charmNames);
+		Core.addItemToTab(Capo.charm);
+		Capo.addCharmRecipe(0, "Healing");
+		Capo.addCharmRecipe(1, "Awkward");
+		Capo.addCharmRecipe(2, "Speed");
+		Capo.addCharmRecipe(3, "Jumping");
+		Capo.addCharmRecipe(4, "Regeneration");
+		Capo.addCharmRecipe(5, "Fire Resistance");
+		Capo.addCharmRecipe(6, "Water Breathing");
+		Capo.addCharmRecipe(7, "Invisibility");
+		Capo.addCharmRecipe(8, "Night Vision");
 		
 	}
 	
@@ -212,30 +212,30 @@ public class AuxiliaryObjects implements IFuelHandler, IGuiHandler {
 	
 	public void registerBlocks() {
 		TileEntity.addMapping(TileEntityEnderShard.class, Reference.MOD_ID + "_EnderShard");
-		AuxiliaryObjects.endShard = new BlockEnderShard(Material.rock, Reference.MOD_ID,
+		Capo.endShard = new BlockEnderShard(Material.rock, Reference.MOD_ID,
 				"Ender Shard");
-		Core.addBlockToTab(AuxiliaryObjects.endShard);
+		Core.addBlockToTab(Capo.endShard);
 		
 		TileEntity.addMapping(TileEntityColorizer.class, Reference.MOD_ID + "_PlayerChecker");
-		AuxiliaryObjects.playerChecker = new BlockPlayerChecker(Reference.MOD_ID, "Player Checker",
+		Capo.playerChecker = new BlockPlayerChecker(Reference.MOD_ID, "Player Checker",
 				TileEntityPlayerChecker.class);
-		Core.addBlockToTab(AuxiliaryObjects.playerChecker);
+		Core.addBlockToTab(Capo.playerChecker);
 		
 		TileEntity.addMapping(TileEntityColorizer.class, Reference.MOD_ID + "_Colorizer");
-		AuxiliaryObjects.colorizer = new BlockColorizer(Material.rock, Reference.MOD_ID,
+		Capo.colorizer = new BlockColorizer(Material.rock, Reference.MOD_ID,
 				"Colorizer", TileEntityColorizer.class);
-		Core.addBlockToTab(AuxiliaryObjects.colorizer);
+		Core.addBlockToTab(Capo.colorizer);
 		
 		TileEntity.addMapping(TileEntityInflixer.class, Reference.MOD_ID + "_Inflixer");
-		AuxiliaryObjects.inflixer = new BlockInflixer(Material.rock, Reference.MOD_ID, "Inflixer",
+		Capo.inflixer = new BlockInflixer(Material.rock, Reference.MOD_ID, "Inflixer",
 				TileEntityInflixer.class);
-		Core.addBlockToTab(AuxiliaryObjects.inflixer);
+		Core.addBlockToTab(Capo.inflixer);
 		
 		TileEntity.addMapping(TileEntityTele.class, Reference.MOD_ID + "_Teleporter");
-		AuxiliaryObjects.teleporterBase = new BlockTeleBase(Material.rock, Reference.MOD_ID,
-				AuxiliaryObjects.teleporterBaseName);
-		Core.addBlockToTab(AuxiliaryObjects.teleporterBase);
-		GameRegistry.addRecipe(new ItemStack(AuxiliaryObjects.teleporterBase), new Object[] {
+		Capo.teleporterBase = new BlockTeleBase(Material.rock, Reference.MOD_ID,
+				Capo.teleporterBaseName);
+		Core.addBlockToTab(Capo.teleporterBase);
+		GameRegistry.addRecipe(new ItemStack(Capo.teleporterBase), new Object[] {
 				"lpl", "lpl", "ooo", 'o', Blocks.obsidian, 'l', (new ItemStack(Items.dye, 1, 4)),
 				'p', (new ItemStack(Items.dye, 1, 5))
 		});
@@ -243,24 +243,24 @@ public class AuxiliaryObjects implements IFuelHandler, IGuiHandler {
 	}
 	
 	public void registerCraftingRecipes() {
-		GameRegistry.addRecipe(new ItemStack(AuxiliaryObjects.endShard, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Capo.endShard, 1), new Object[] {
 				" x ", "xcx", "vvv", 'x', Items.ender_pearl, 'c', Items.ghast_tear, 'v',
 				Blocks.obsidian
 		});
 		
 		GameRegistry.addRecipe(
-				new ItemStack(AuxiliaryObjects.unStableCore),
+				new ItemStack(Capo.unStableCore),
 				new Object[] {
 						"o o", " m ", "o o", Character.valueOf('o'), Blocks.obsidian,
 						Character.valueOf('m'), Items.map,
 				});
 		GameRegistry.addRecipe(
-				new ItemStack(AuxiliaryObjects.stableCore),
+				new ItemStack(Capo.stableCore),
 				new Object[] {
 						"eee", "ece", "eee", Character.valueOf('e'), Items.ender_pearl,
-						Character.valueOf('c'), AuxiliaryObjects.unStableCore
+						Character.valueOf('c'), Capo.unStableCore
 				});
-		GameRegistry.addRecipe(new ItemStack(AuxiliaryObjects.talisman), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Capo.talisman), new Object[] {
 				"sgs", "g g", " g ", Character.valueOf('s'), Items.string, Character.valueOf('g'),
 				Items.gold_ingot
 		});
@@ -272,30 +272,30 @@ public class AuxiliaryObjects implements IFuelHandler, IGuiHandler {
 				new ItemStack(Items.potionitem, 1, 8269), new ItemStack(Items.potionitem, 1, 8270),
 				new ItemStack(Items.potionitem, 1, 8262)
 		};
-		for (int i = 0; i < AuxiliaryObjects.charmNames.length; i++) {
+		for (int i = 0; i < Capo.charmNames.length; i++) {
 			if (i == 1) {
-				GameRegistry.addRecipe(new ItemStack(AuxiliaryObjects.charm, 1, i),
+				GameRegistry.addRecipe(new ItemStack(Capo.charm, 1, i),
 						new Object[] {
 								"lol", "ptp", "lol", Character.valueOf('l'),
 								new ItemStack(Items.dye, 1, 4), Character.valueOf('t'),
-								AuxiliaryObjects.talisman, Character.valueOf('p'), potions[0],
+								Capo.talisman, Character.valueOf('p'), potions[0],
 								Character.valueOf('o'), Items.baked_potato
 						});
 			}
 			else if (i == 3) {
-				GameRegistry.addRecipe(new ItemStack(AuxiliaryObjects.charm, 1, i),
+				GameRegistry.addRecipe(new ItemStack(Capo.charm, 1, i),
 						new Object[] {
 								"lol", "ptp", "lol", Character.valueOf('l'),
 								new ItemStack(Items.dye, 1, 4), Character.valueOf('t'),
-								AuxiliaryObjects.talisman, Character.valueOf('p'), potions[2],
+								Capo.talisman, Character.valueOf('p'), potions[2],
 								Character.valueOf('o'), Blocks.piston
 						});
 			}
 			else {
-				GameRegistry.addRecipe(new ItemStack(AuxiliaryObjects.charm, 1, i), new Object[] {
+				GameRegistry.addRecipe(new ItemStack(Capo.charm, 1, i), new Object[] {
 						"lpl", "ptp", "lpl", Character.valueOf('l'),
 						new ItemStack(Items.dye, 1, 4), Character.valueOf('t'),
-						AuxiliaryObjects.talisman, Character.valueOf('p'), potions[i]
+						Capo.talisman, Character.valueOf('p'), potions[i]
 				});
 			}
 		}
@@ -331,7 +331,7 @@ public class AuxiliaryObjects implements IFuelHandler, IGuiHandler {
 	// ~Events~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	@SubscribeEvent
 	public void blockHarvestEvent(HarvestDropsEvent event) {
-		if (event.isSilkTouching) AuxiliaryObjects.log.info("silk touch");
+		if (event.isSilkTouching) Capo.log.info("silk touch");
 		EntityPlayer player = event.harvester;
 		if (player != null) {
 			ItemStack heldStack = player.getHeldItem();
@@ -368,7 +368,7 @@ public class AuxiliaryObjects implements IFuelHandler, IGuiHandler {
 	public void pre(RenderPlayerEvent.Pre event) {
 		EntityPlayer player = event.entityPlayer;
 		if (player != null) {
-			if (player.inventory.hasItemStack(new ItemStack(AuxiliaryObjects.charm, 1, 7))) {
+			if (player.inventory.hasItemStack(new ItemStack(Capo.charm, 1, 7))) {
 				event.setCanceled(true);
 			}
 		}
@@ -379,7 +379,7 @@ public class AuxiliaryObjects implements IFuelHandler, IGuiHandler {
 		if (event.entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.entity;
 			if (player != null) {
-				if (player.inventory.hasItemStack(new ItemStack(AuxiliaryObjects.charm, 1, 5))) {
+				if (player.inventory.hasItemStack(new ItemStack(Capo.charm, 1, 5))) {
 					if (event.source.isFireDamage()) {
 						player.extinguish();
 						event.setCanceled(true);
@@ -452,8 +452,8 @@ public class AuxiliaryObjects implements IFuelHandler, IGuiHandler {
 	private void Cofh_ThermalExpansion() {
 		if (CoreUtil.isModLoaded("ThermalExpansion")) {
 			this.thermalExpansionLoaded = true;
-			AuxiliaryObjects.log.info("\n\n");
-			AuxiliaryObjects.log.info("ThermalExpansion Loaded and Ready");
+			Capo.log.info("\n\n");
+			Capo.log.info("ThermalExpansion Loaded and Ready");
 			try {
 				// 250 = 1 ender pearl
 				FluidStack enderStack = FluidRegistry.getFluidStack("ender", 1000);
@@ -465,13 +465,13 @@ public class AuxiliaryObjects implements IFuelHandler, IGuiHandler {
 				toSend.setTag("fluid", new NBTTagCompound());
 				
 				(new ItemStack(Items.stick)).writeToNBT(toSend.getCompoundTag("input"));
-				AuxiliaryObjects.log.info("Input Ready");
+				Capo.log.info("Input Ready");
 				(new ItemStack(Items.apple)).writeToNBT(toSend.getCompoundTag("output"));
-				AuxiliaryObjects.log.info("Output Ready");
+				Capo.log.info("Output Ready");
 				toSend.setBoolean("reversible", false);
 				enderStack.writeToNBT(toSend.getCompoundTag("fluid"));
 				FMLInterModComms.sendMessage("ThermalExpansion", "TransposerFillRecipe", toSend);
-				AuxiliaryObjects.log.info("Sent Recipie");
+				Capo.log.info("Sent Recipie");
 			} catch (Exception e) {
 				System.err.println(e.getStackTrace());
 				
@@ -482,9 +482,9 @@ public class AuxiliaryObjects implements IFuelHandler, IGuiHandler {
 	
 	// ~Other~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	private static void addCharmRecipe(int metadata, String potionName) {
-		GameRegistry.addRecipe(new ItemStack(AuxiliaryObjects.charm, 1, metadata), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Capo.charm, 1, metadata), new Object[] {
 				"lpl", "ptp", "lpl", Character.valueOf('l'), new ItemStack(Items.dye, 1, 4),
-				Character.valueOf('t'), AuxiliaryObjects.talisman, Character.valueOf('p'),
+				Character.valueOf('t'), Capo.talisman, Character.valueOf('p'),
 				new ItemStack(Items.potionitem, 1, 0)
 		});
 	}

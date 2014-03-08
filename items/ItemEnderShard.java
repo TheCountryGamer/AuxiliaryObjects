@@ -4,7 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.core.Items.ItemBase;
 
 public class ItemEnderShard extends ItemBase {
@@ -22,7 +22,7 @@ public class ItemEnderShard extends ItemBase {
 		if(canPlace) {
 			if(!player.capabilities.isCreativeMode)
 				itemStack.stackSize--;
-			world.setBlock(x, y+1, z, AuxiliaryObjects.endShard);
+			world.setBlock(x, y+1, z, Capo.endShard);
 			return true;
 		}
 		

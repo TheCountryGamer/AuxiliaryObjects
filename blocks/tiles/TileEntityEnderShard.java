@@ -9,7 +9,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.core.block.tiles.TileEntityInventoryBase;
 
 import cpw.mods.fml.relauncher.Side;
@@ -42,7 +42,7 @@ public class TileEntityEnderShard extends TileEntityInventoryBase {
 						Items.ender_pearl, 1));
 				this.markDirty();
 				if (!this.worldObj.isRemote)
-					AuxiliaryObjects.log.info("Gen'd Ender Pearl");
+					Capo.log.info("Gen'd Ender Pearl");
 				return;
 			} else
 				this.oreGenTime--;
@@ -55,7 +55,7 @@ public class TileEntityEnderShard extends TileEntityInventoryBase {
 					if (this.addStack(tileEntIInv, this.getStackInSlot(0))) {
 						this.setInventorySlotContents(0, null);
 						if (!this.worldObj.isRemote)
-							AuxiliaryObjects.log.info("Dropped Inv to inventory below");
+							Capo.log.info("Dropped Inv to inventory below");
 					}
 					this.markDirty();
 					tileEntIInv.markDirty();
@@ -146,7 +146,7 @@ public class TileEntityEnderShard extends TileEntityInventoryBase {
 			this.worldObj.markTileEntityChunkModified(this.xCoord, this.yCoord,
 					this.zCoord, this);
 
-			if (this.worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord) == AuxiliaryObjects.endShard) {
+			if (this.worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord) == Capo.endShard) {
 				//this.worldObj.func_96440_m(this.xCoord, this.yCoord,
 				//		this.zCoord, CG_AuxiliaryObjects.endShard);
 			}

@@ -40,7 +40,7 @@ import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.auxiliaryobjects.lib.EnumPartition;
 import com.countrygamer.core.Core;
 import com.countrygamer.core.Items.ItemBase;
@@ -135,9 +135,9 @@ public class ItemMultiItem extends ItemBase {
 		multiTagCom.setBoolean("advanced", false);
 		multiTagCom.setInteger("damage", ItemMultiItem.maxDamage);
 		multiTagCom
-				.setFloat("efficency", AuxiliaryObjects.basicMat.getEfficiencyOnProperMaterial());
+				.setFloat("efficency", Capo.basicMat.getEfficiencyOnProperMaterial());
 		multiTagCom
-				.setFloat("damageVsEntity", 2.0F + AuxiliaryObjects.basicMat.getDamageVsEntity());
+				.setFloat("damageVsEntity", 2.0F + Capo.basicMat.getDamageVsEntity());
 		for (int i = 1; i <= ItemMultiItem.maxItemNum; i++) {
 			multiTagCom.setTag(i + "", ItemMultiItem.emptyTagCom);
 		}
@@ -178,7 +178,7 @@ public class ItemMultiItem extends ItemBase {
 		
 		NBTTagCompound tagCom = newItemStack.getTagCompound();
 		if (multiTagCom == null) {
-			AuxiliaryObjects.log.info("Null input tagcom");
+			Capo.log.info("Null input tagcom");
 			if (generateNew) multiTagCom = ItemMultiItem.newMultiTagCompound();
 		}
 		tagCom.setTag("multiTagCom", multiTagCom);
@@ -265,7 +265,7 @@ public class ItemMultiItem extends ItemBase {
 			itemstackTagCom.setInteger("size", itemStack.stackSize);
 			itemstackTagCom.setInteger("damage", itemStack.getItemDamage());
 			itemstackTagCom.setBoolean("hasTagCom", itemStack.hasTagCompound());
-			if (itemStack.hasTagCompound()) AuxiliaryObjects.log.info("Has tag com");
+			if (itemStack.hasTagCompound()) Capo.log.info("Has tag com");
 			itemstackTagCom.setTag("tagcom",
 					itemStack.hasTagCompound() ? itemStack.getTagCompound() : new NBTTagCompound());
 			multiTagCom.setTag(slot + "", itemstackTagCom);
@@ -574,7 +574,7 @@ public class ItemMultiItem extends ItemBase {
 			return ToolMaterial.valueOf(((ItemTool) tools[0].getItem()).getToolMaterialName())
 					.getEfficiencyOnProperMaterial();
 		else
-			return AuxiliaryObjects.basicMat.getEfficiencyOnProperMaterial();
+			return Capo.basicMat.getEfficiencyOnProperMaterial();
 	}
 	
 	@Override
@@ -611,18 +611,18 @@ public class ItemMultiItem extends ItemBase {
 	
 	@Override
 	public String getArmorTexture(ItemStack itemStack, Entity entity, int slot, String type) {
-		AuxiliaryObjects.log.info("armor tex");
+		Capo.log.info("armor tex");
 		for (int i = 1; i <= ItemMultiItem.maxItemNum; i++) {
 			ItemStack stackInSlot = ItemMultiItem.getStackInSlot(itemStack, i);
 			if (stackInSlot != null)
-				AuxiliaryObjects.log.info(stackInSlot.getDisplayName());
+				Capo.log.info(stackInSlot.getDisplayName());
 			else
-				AuxiliaryObjects.log.info("Slot Null");
+				Capo.log.info("Slot Null");
 			if (stackInSlot != null
 					&& stackInSlot.getItem().isValidArmor(stackInSlot, slot, entity)) {
-				AuxiliaryObjects.log.info(slot + ":" + type);
+				Capo.log.info(slot + ":" + type);
 				String str = stackInSlot.getItem().getArmorTexture(stackInSlot, entity, slot, type);
-				AuxiliaryObjects.log.info(str);
+				Capo.log.info(str);
 				if (str != null) return str;
 			}
 		}
@@ -821,7 +821,7 @@ public class ItemMultiItem extends ItemBase {
 			}
 			// AuxiliaryObjects.log.info(count + ":" + ItemMultiItem.maxItemNum);
 			if (count == ItemMultiItem.maxItemNum) {
-				multiStack = new ItemStack(AuxiliaryObjects.multidye);
+				multiStack = new ItemStack(Capo.multidye);
 				player.setCurrentItemOrArmor(0, multiStack);
 				return multiStack;
 			}
@@ -898,7 +898,7 @@ public class ItemMultiItem extends ItemBase {
 			// Uses bucket
 			usageStack = new ItemStack(Items.bucket);
 			if (ItemMultiItem.hasItemInflixed(multiStack, usageStack)) {
-				AuxiliaryObjects.log.info("Using bucket");
+				Capo.log.info("Using bucket");
 				ItemStack newBucket = this.rightClickBucket(usageStack, world, player);
 				multiStack = ItemMultiItem.setStackInSlot(multiStack,
 						ItemMultiItem.getSlotOfStack(multiStack, usageStack), newBucket);

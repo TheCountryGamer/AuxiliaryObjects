@@ -11,7 +11,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.core.Items.ItemMetadataBase;
 
 public class ItemCharm extends ItemMetadataBase {
@@ -125,8 +125,8 @@ public class ItemCharm extends ItemMetadataBase {
 			}
 			if (itemStack.getItemDamage() == 3) { // jumping
 				if (player.worldObj.isRemote) {
-					if (!AuxiliaryObjects.instance.entIDToStepHeight.containsKey(player.getEntityId())) {
-						AuxiliaryObjects.instance.entIDToStepHeight.put(player.getEntityId(),
+					if (!Capo.instance.entIDToStepHeight.containsKey(player.getEntityId())) {
+						Capo.instance.entIDToStepHeight.put(player.getEntityId(),
 								player.stepHeight);
 					}
 					player.stepHeight = 1.0F;
@@ -166,7 +166,7 @@ public class ItemCharm extends ItemMetadataBase {
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
-		if (itemStack.getItem() == AuxiliaryObjects.charm && itemStack.getItemDamage() == 0) {
+		if (itemStack.getItem() == Capo.charm && itemStack.getItemDamage() == 0) {
 			if (player.getHealth() < player.getMaxHealth()) player.heal(5.0F);
 		}
 		

@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityTele;
 import com.countrygamer.core.Items.ItemBase;
 import com.countrygamer.core.lib.CoreUtil;
@@ -54,7 +54,7 @@ public class ItemTeleCore extends ItemBase {
 			World world, int x, int y, int z, int side, float par8, float par9,
 			float par10) {
 		if (player.isSneaking()
-				&& world.getBlock(x, y, z) == AuxiliaryObjects.teleporterBase) {
+				&& world.getBlock(x, y, z) == Capo.teleporterBase) {
 			TileEntityTele tileEnt = (TileEntityTele) world.getTileEntity(
 					x, y, z);
 			if (tileEnt != null) {

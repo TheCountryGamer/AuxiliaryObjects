@@ -10,7 +10,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.server.MinecraftServer;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.core.block.tiles.TileEntityBase;
 
 public class TileEntityPlayerChecker extends TileEntityBase {
@@ -71,7 +71,7 @@ public class TileEntityPlayerChecker extends TileEntityBase {
 		this.refreshPlayers();
 		for (String playerName : this.onlinePlayers.keySet()) {
 			boolean isOnline = this.activePlayerNames.contains(playerName);
-			AuxiliaryObjects.log.info(playerName + ":" + isOnline);
+			Capo.log.info(playerName + ":" + isOnline);
 		}
 	}
 	
@@ -86,7 +86,7 @@ public class TileEntityPlayerChecker extends TileEntityBase {
 	public boolean isActivePlayerOnline() {
 		for (String playerName : this.activePlayerNames) {
 			boolean isOnline = this.onlinePlayers.containsKey(playerName);
-			AuxiliaryObjects.log.info(playerName + ":" + isOnline);
+			Capo.log.info(playerName + ":" + isOnline);
 			if (isOnline) return true;
 		}
 		return false;

@@ -14,7 +14,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityTele;
 import com.countrygamer.auxiliaryobjects.items.ItemTeleCore;
 import com.countrygamer.core.Core;
@@ -64,15 +64,15 @@ public class BlockTeleBase extends BlockContainerBase {
 				return true;
 
 			if (Core.DEBUG)
-				AuxiliaryObjects.log.info("TeleBase Clicked");
+				Capo.log.info("TeleBase Clicked");
 			if (coreStack == null) { // is slot is empty
 				if (heldStack != null) {
 					if (heldStack.getItem() instanceof ItemTeleCore
 							&& heldStack.hasTagCompound()) {
 						if (Core.DEBUG)
-							AuxiliaryObjects.log.info("Try to insert core");
+							Capo.log.info("Try to insert core");
 						if (Core.DEBUG)
-							AuxiliaryObjects.log.info(""
+							Capo.log.info(""
 									+ tileEnt.isItemValidForSlot(0, heldStack));
 						// Insert Core
 						if (tileEnt.isItemValidForSlot(0, heldStack)
@@ -106,7 +106,7 @@ public class BlockTeleBase extends BlockContainerBase {
 	private void teleport(ItemStack coreStack, EntityPlayer player,
 			TileEntityTele tileEnt) {
 		ItemTeleCore core = (ItemTeleCore) coreStack.getItem();
-		if (coreStack.getItem() == AuxiliaryObjects.unStableCore) {
+		if (coreStack.getItem() == Capo.unStableCore) {
 			int potionLengthSec = 20;
 			NBTTagCompound coordsTag = coreStack.getTagCompound()
 					.getCompoundTag("coords");
@@ -124,7 +124,7 @@ public class BlockTeleBase extends BlockContainerBase {
 					true, false);
 
 		}
-		if (coreStack.getItem() == AuxiliaryObjects.stableCore) {
+		if (coreStack.getItem() == Capo.stableCore) {
 			if (!tileEnt.isSlotEmpty("ender"))
 				CoreUtil.teleportPlayerToDimension(player, coreStack
 						.getTagCompound().getInteger(core.dimensionID));

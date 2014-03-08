@@ -3,7 +3,7 @@ package com.countrygamer.auxiliaryobjects.proxy;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityEnderShard;
 import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityTele;
 import com.countrygamer.auxiliaryobjects.client.render.ItemRenderTeleCore;
@@ -29,9 +29,9 @@ public class ClientProxy extends ServerProxy {
 	
 	@Override
 	public void registerItemRender() {
-		MinecraftForgeClient.registerItemRenderer(AuxiliaryObjects.stableCore,
+		MinecraftForgeClient.registerItemRenderer(Capo.stableCore,
 				(IItemRenderer) (new ItemRenderTeleCore()));
-		MinecraftForgeClient.registerItemRenderer(AuxiliaryObjects.unStableCore,
+		MinecraftForgeClient.registerItemRenderer(Capo.unStableCore,
 				(IItemRenderer) (new ItemRenderTeleCore()));
 	}
 	

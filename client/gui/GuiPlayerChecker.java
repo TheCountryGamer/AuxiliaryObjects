@@ -20,7 +20,7 @@ import org.apache.logging.log4j.LogManager;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityPlayerChecker;
 import com.countrygamer.auxiliaryobjects.packet.PacketStorePlayerNames;
 import com.countrygamer.core.client.gui.GuiButtonCheck;
@@ -96,13 +96,13 @@ public class GuiPlayerChecker extends GuiScreen {
 			playerName = this.playerField.getText();
 			PacketStorePlayerNames packet = new PacketStorePlayerNames(
 					tileEnt.xCoord, tileEnt.yCoord, tileEnt.zCoord, playerName, true);
-			AuxiliaryObjects.packetChannel.sendToServer(packet);
+			Capo.packetChannel.sendToServer(packet);
 		}
 		if (i == this.xButton.id) {
 			playerName = this.playerField.getText();
 			PacketStorePlayerNames packet = new PacketStorePlayerNames(
 					tileEnt.xCoord, tileEnt.yCoord, tileEnt.zCoord, playerName, false);
-			AuxiliaryObjects.packetChannel.sendToServer(packet);
+			Capo.packetChannel.sendToServer(packet);
 		}
 
 		if (sendPacket) {

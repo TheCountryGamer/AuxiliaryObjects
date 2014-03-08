@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityTele;
 import com.countrygamer.auxiliaryobjects.lib.Reference;
 
@@ -40,7 +40,7 @@ public class TileEntityTeleRenderer extends TileEntitySpecialRenderer {
 		 * coordinates] - [player coordinates (camera coordinates)]
 		 */
 		renderBlock(tileEnt, tileEnt.getWorldObj(), tileEnt.xCoord, tileEnt.yCoord, tileEnt.zCoord,
-				AuxiliaryObjects.teleporterBase);
+				Capo.teleporterBase);
 		GL11.glPopMatrix();
 		
 	}

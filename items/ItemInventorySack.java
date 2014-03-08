@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.auxiliaryobjects.inventory.InventorySack;
 import com.countrygamer.auxiliaryobjects.lib.Reference;
 import com.countrygamer.core.Items.ItemBase;
@@ -30,7 +30,7 @@ public class ItemInventorySack extends ItemBase {
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
 		if (player.isSneaking()) {
-			player.openGui(AuxiliaryObjects.instance, Reference.guiInvSack, world, (int) player.posX,
+			player.openGui(Capo.instance, Reference.guiInvSack, world, (int) player.posX,
 					(int) player.posY, (int) player.posZ);
 		}
 		else if (itemStack.getItem() instanceof ItemInventorySack) {

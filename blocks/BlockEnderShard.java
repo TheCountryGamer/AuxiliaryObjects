@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityEnderShard;
 import com.countrygamer.core.block.BlockContainerBase;
 
@@ -31,12 +31,12 @@ public class BlockEnderShard extends BlockContainerBase {
 			TileEntityEnderShard tileEnt = (TileEntityEnderShard) world
 					.getTileEntity(x, y, z);
 			if (tileEnt == null) {
-				AuxiliaryObjects.log.info("No Tile Ent");
+				Capo.log.info("No Tile Ent");
 				return false;
 			} else {
 				if (tileEnt.getStackInSlot(0) != null) {
 					this.dropContents(world, new Random(), tileEnt, x, y, z);
-					AuxiliaryObjects.log.info("Dropped");
+					Capo.log.info("Dropped");
 					tileEnt.markDirty();
 				}
 				return true;

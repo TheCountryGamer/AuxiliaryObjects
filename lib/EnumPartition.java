@@ -1,6 +1,6 @@
 package com.countrygamer.auxiliaryobjects.lib;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 
 public enum EnumPartition {
 	NONE(0, "None"), DURABILTY(1, "Durability"), POTION(2, "Potion"), BUCKET(3, "Bucket"), LAVABUCKET(

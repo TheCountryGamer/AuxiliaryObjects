@@ -8,7 +8,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.auxiliaryobjects.inventory.ContainerInventorySack;
 import com.countrygamer.auxiliaryobjects.items.ItemInventorySack;
 import com.countrygamer.auxiliaryobjects.lib.Reference;
@@ -48,7 +48,7 @@ public class GuiInventorySack extends GuiContainerItemBase {
 		super.onGuiClosed();
 		if (!this.nameTextField.getText().equals("")) {
 			PacketSackName packet = new PacketSackName(this.nameTextField.getText());
-			AuxiliaryObjects.packetChannel.sendToServer(packet);
+			Capo.packetChannel.sendToServer(packet);
 		}
 	}
 	

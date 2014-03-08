@@ -15,7 +15,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.auxiliaryobjects.AuxiliaryObjects;
+import com.countrygamer.auxiliaryobjects.Capo;
 import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityColorizer;
 import com.countrygamer.auxiliaryobjects.inventory.ContainerColorizer;
 import com.countrygamer.auxiliaryobjects.items.ItemMultiDye;
@@ -157,8 +157,8 @@ public class GuiColorizer extends GuiContainerBlockBase {
 					return;
 				}
 				PacketSaveDyeColor packet = new PacketSaveDyeColor(this.typeColor_Field.getText());
-				AuxiliaryObjects.packetChannel.sendToServer(packet);
-				AuxiliaryObjects.packetChannel.sendToAll(packet);
+				Capo.packetChannel.sendToServer(packet);
+				Capo.packetChannel.sendToAll(packet);
 				
 				double[] costs = this.getColorsForDyeing();
 				
@@ -184,8 +184,8 @@ public class GuiColorizer extends GuiContainerBlockBase {
 				
 				PacketSubColorsTE packet2 = new PacketSubColorsTE(this.tileEntColor.xCoord,
 						this.tileEntColor.yCoord, this.tileEntColor.zCoord, costs);
-				AuxiliaryObjects.packetChannel.sendToServer(packet2);
-				AuxiliaryObjects.packetChannel.sendToAll(packet2);
+				Capo.packetChannel.sendToServer(packet2);
+				Capo.packetChannel.sendToAll(packet2);
 				
 			}
 			else {
