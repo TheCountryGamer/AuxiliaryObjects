@@ -1,8 +1,6 @@
 package com.countrygamer.auxiliaryobjects;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.logging.Logger;
 
 import net.minecraft.block.Block;
@@ -33,17 +31,14 @@ import com.countrygamer.auxiliaryobjects.blocks.BlockPlayerChecker;
 import com.countrygamer.auxiliaryobjects.blocks.BlockTeleBase;
 import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityColorizer;
 import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityEnderShard;
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityIncubator;
 import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityInflixer;
 import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityPlayerChecker;
 import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityTele;
 import com.countrygamer.auxiliaryobjects.client.gui.GuiColorizer;
-import com.countrygamer.auxiliaryobjects.client.gui.GuiIncubator;
 import com.countrygamer.auxiliaryobjects.client.gui.GuiInflixer;
 import com.countrygamer.auxiliaryobjects.client.gui.GuiInventorySack;
 import com.countrygamer.auxiliaryobjects.client.gui.GuiPlayerChecker;
 import com.countrygamer.auxiliaryobjects.inventory.ContainerColorizer;
-import com.countrygamer.auxiliaryobjects.inventory.ContainerIncubator;
 import com.countrygamer.auxiliaryobjects.inventory.ContainerInflixer;
 import com.countrygamer.auxiliaryobjects.inventory.ContainerInventorySack;
 import com.countrygamer.auxiliaryobjects.inventory.InventorySack;
@@ -83,7 +78,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class AuxiliaryObjects implements IFuelHandler, IGuiHandler {
 	
 	public static Logger				log						= Logger.getLogger(Reference.MOD_NAME);
-	
 	@Instance(Reference.MOD_ID)
 	public static AuxiliaryObjects		instance;
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS,
@@ -103,6 +97,10 @@ public class AuxiliaryObjects implements IFuelHandler, IGuiHandler {
 	
 	public static Item					talisman;
 	public static Item					charm;
+	public static final String[]		charmNames				= new String[] {
+			"Health", "Hunger", "Speed", "Jumping", "Regeneration", "Heat", "Gills",
+			"Invisibility", "Night Vision"
+																};
 	// ~Blocks~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	public static Block					endShard;
 	
@@ -118,12 +116,14 @@ public class AuxiliaryObjects implements IFuelHandler, IGuiHandler {
 	public static Block					teleporterBase;
 	public static String				teleporterBaseName		= "Teleporter";
 	
-	// Mod Compatibility~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// Mod
+	// Compatibility~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	public boolean						thermalExpansionLoaded	= false;
 	// ~Other~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	// ~Packet~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	public static final PacketPipeline	packetChannel			= new PacketPipeline();
-	// ~Tool Mat~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~Tool
+	// Mat~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	public static ToolMaterial			basicMat				= EnumHelper.addToolMaterial(
 																		"multiTool", 0, 50, 2.0F,
 																		0.0F, 0);
@@ -185,34 +185,15 @@ public class AuxiliaryObjects implements IFuelHandler, IGuiHandler {
 		AuxiliaryObjects.unStableCore = new ItemTeleCore(Reference.MOD_ID,
 				AuxiliaryObjects.unStableCoreName);
 		Core.addItemToTab(AuxiliaryObjects.unStableCore);
-		GameRegistry.addRecipe(
-				new ItemStack(AuxiliaryObjects.unStableCore),
-				new Object[] {
-						"o o", " m ", "o o", Character.valueOf('o'), Blocks.obsidian,
-						Character.valueOf('m'), Items.map,
-				});
 		
 		AuxiliaryObjects.stableCore = new ItemTeleCore(Reference.MOD_ID,
 				AuxiliaryObjects.stableCoreName);
 		Core.addItemToTab(AuxiliaryObjects.stableCore);
-		GameRegistry.addRecipe(
-				new ItemStack(AuxiliaryObjects.stableCore),
-				new Object[] {
-						"eee", "ece", "eee", Character.valueOf('e'), Items.ender_pearl,
-						Character.valueOf('c'), AuxiliaryObjects.unStableCore
-				});
 		
 		AuxiliaryObjects.talisman = new ItemBase(Reference.MOD_ID, "Talisman");
 		Core.addItemToTab(AuxiliaryObjects.talisman);
-		GameRegistry.addRecipe(new ItemStack(AuxiliaryObjects.talisman), new Object[] {
-				"sgs", "g g", " g ", Character.valueOf('s'), Items.string, Character.valueOf('g'),
-				Items.gold_ingot
-		});
 		
-		AuxiliaryObjects.charm = new ItemCharm(Reference.MOD_ID, new String[] {
-				"Health", "Hunger", "Speed", "Jumping", "Regeneration", "Heat", "Gills",
-				"Invisibility", "Night Vision"
-		});
+		AuxiliaryObjects.charm = new ItemCharm(Reference.MOD_ID, AuxiliaryObjects.charmNames);
 		Core.addItemToTab(AuxiliaryObjects.charm);
 		AuxiliaryObjects.addCharmRecipe(0, "Healing");
 		AuxiliaryObjects.addCharmRecipe(1, "Awkward");
@@ -230,12 +211,12 @@ public class AuxiliaryObjects implements IFuelHandler, IGuiHandler {
 	}
 	
 	public void registerBlocks() {
-		GameRegistry.registerTileEntity(TileEntityEnderShard.class, "TileEntityEnderShard");
+		TileEntity.addMapping(TileEntityEnderShard.class, Reference.MOD_ID + "_EnderShard");
 		AuxiliaryObjects.endShard = new BlockEnderShard(Material.rock, Reference.MOD_ID,
 				"Ender Shard");
 		Core.addBlockToTab(AuxiliaryObjects.endShard);
 		
-		GameRegistry.registerTileEntity(TileEntityPlayerChecker.class, "TileEntityPlayerChecker");
+		TileEntity.addMapping(TileEntityColorizer.class, Reference.MOD_ID + "_PlayerChecker");
 		AuxiliaryObjects.playerChecker = new BlockPlayerChecker(Reference.MOD_ID, "Player Checker",
 				TileEntityPlayerChecker.class);
 		Core.addBlockToTab(AuxiliaryObjects.playerChecker);
@@ -250,7 +231,7 @@ public class AuxiliaryObjects implements IFuelHandler, IGuiHandler {
 				TileEntityInflixer.class);
 		Core.addBlockToTab(AuxiliaryObjects.inflixer);
 		
-		GameRegistry.registerTileEntity(TileEntityTele.class, "TileEntityAuxiliaryObjects");
+		TileEntity.addMapping(TileEntityTele.class, Reference.MOD_ID + "_Teleporter");
 		AuxiliaryObjects.teleporterBase = new BlockTeleBase(Material.rock, Reference.MOD_ID,
 				AuxiliaryObjects.teleporterBaseName);
 		Core.addBlockToTab(AuxiliaryObjects.teleporterBase);
@@ -266,6 +247,59 @@ public class AuxiliaryObjects implements IFuelHandler, IGuiHandler {
 				" x ", "xcx", "vvv", 'x', Items.ender_pearl, 'c', Items.ghast_tear, 'v',
 				Blocks.obsidian
 		});
+		
+		GameRegistry.addRecipe(
+				new ItemStack(AuxiliaryObjects.unStableCore),
+				new Object[] {
+						"o o", " m ", "o o", Character.valueOf('o'), Blocks.obsidian,
+						Character.valueOf('m'), Items.map,
+				});
+		GameRegistry.addRecipe(
+				new ItemStack(AuxiliaryObjects.stableCore),
+				new Object[] {
+						"eee", "ece", "eee", Character.valueOf('e'), Items.ender_pearl,
+						Character.valueOf('c'), AuxiliaryObjects.unStableCore
+				});
+		GameRegistry.addRecipe(new ItemStack(AuxiliaryObjects.talisman), new Object[] {
+				"sgs", "g g", " g ", Character.valueOf('s'), Items.string, Character.valueOf('g'),
+				Items.gold_ingot
+		});
+		
+		ItemStack[] potions = new ItemStack[] {
+				new ItemStack(Items.potionitem, 1, 8229), null,
+				new ItemStack(Items.potionitem, 1, 8258), null,
+				new ItemStack(Items.potionitem, 1, 8257), new ItemStack(Items.potionitem, 1, 8259),
+				new ItemStack(Items.potionitem, 1, 8269), new ItemStack(Items.potionitem, 1, 8270),
+				new ItemStack(Items.potionitem, 1, 8262)
+		};
+		for (int i = 0; i < AuxiliaryObjects.charmNames.length; i++) {
+			if (i == 1) {
+				GameRegistry.addRecipe(new ItemStack(AuxiliaryObjects.charm, 1, i),
+						new Object[] {
+								"lol", "ptp", "lol", Character.valueOf('l'),
+								new ItemStack(Items.dye, 1, 4), Character.valueOf('t'),
+								AuxiliaryObjects.talisman, Character.valueOf('p'), potions[0],
+								Character.valueOf('o'), Items.baked_potato
+						});
+			}
+			else if (i == 3) {
+				GameRegistry.addRecipe(new ItemStack(AuxiliaryObjects.charm, 1, i),
+						new Object[] {
+								"lol", "ptp", "lol", Character.valueOf('l'),
+								new ItemStack(Items.dye, 1, 4), Character.valueOf('t'),
+								AuxiliaryObjects.talisman, Character.valueOf('p'), potions[2],
+								Character.valueOf('o'), Blocks.piston
+						});
+			}
+			else {
+				GameRegistry.addRecipe(new ItemStack(AuxiliaryObjects.charm, 1, i), new Object[] {
+						"lpl", "ptp", "lpl", Character.valueOf('l'),
+						new ItemStack(Items.dye, 1, 4), Character.valueOf('t'),
+						AuxiliaryObjects.talisman, Character.valueOf('p'), potions[i]
+				});
+			}
+		}
+		
 	}
 	
 	public void registerSmeltingRecipes() {

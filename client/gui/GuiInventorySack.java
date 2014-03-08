@@ -1,5 +1,7 @@
 package com.countrygamer.auxiliaryobjects.client.gui;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -48,6 +50,17 @@ public class GuiInventorySack extends GuiContainerItemBase {
 			PacketSackName packet = new PacketSackName(this.nameTextField.getText());
 			AuxiliaryObjects.packetChannel.sendToServer(packet);
 		}
+	}
+	
+	@Override
+	protected void drawGuiContainerBackgroundLayer(float var1, int var2, int var3) {
+		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		this.mc.getTextureManager().bindTexture(this.bkgdTex);
+		drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
+		
+		this.nameTextField.drawTextBox();
+		
+		this.backgroundObjects();
 	}
 	
 }

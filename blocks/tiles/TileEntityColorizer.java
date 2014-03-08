@@ -2,6 +2,8 @@ package com.countrygamer.auxiliaryobjects.blocks.tiles;
 
 import java.text.DecimalFormat;
 
+import net.minecraft.item.ItemBucketMilk;
+import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -32,12 +34,27 @@ public class TileEntityColorizer extends TileEntityInventoryBase {
 	public void updateEntity() {
 		ItemStack dyeStack = this.getStackInSlot(0);
 		if (dyeStack != null) {
-			double[] addedDye = CoreUtilHex.getColorFromDye(dyeStack);
-			if (this.canAbsorb(addedDye)) this.absorbDye(dyeStack, addedDye);
+			if (dyeStack.getItem() instanceof ItemDye) { // TODO
+				double[] addedDye = CoreUtilHex.getColorFromDye(dyeStack);
+				if (this.canAbsorb(addedDye)) this.absorbDye(dyeStack, addedDye);
+			}
+			else if (dyeStack.getItem() instanceof ItemBucketMilk) {
+				this.colorStorage = new double[] {
+						0, 0, 0
+				};
+				ItemStack copy = dyeStack.copy();
+				copy.stackSize--;
+				if (copy.stackSize <= 0)
+					this.setInventorySlotContents(0, null);
+				else
+					this.setInventorySlotContents(0, copy);
+				this.markDirty();
+			}
 		}
 		
 		// String side = this.worldObj.isRemote ? "client" : "server";
-		// MultiMod.log.info(side + ":" + this.colorStorage[0] + "|" + this.colorStorage[1] + "|"
+		// MultiMod.log.info(side + ":" + this.colorStorage[0] + "|" +
+		// this.colorStorage[1] + "|"
 		// + this.colorStorage[2]);
 	}
 	
@@ -72,7 +89,8 @@ public class TileEntityColorizer extends TileEntityInventoryBase {
 	public void markDirty() {
 		super.markDirty();
 		// Re-sync server-client colorStorage for GUI
-		// PacketSubColorsTE packet = new PacketSubColorsTE(this.xCoord, this.yCoord, this.zCoord,
+		// PacketSubColorsTE packet = new PacketSubColorsTE(this.xCoord,
+		// this.yCoord, this.zCoord,
 		// this.colorStorage);
 		// MultiMod.packetChannel.sendToAll(packet);
 		
@@ -122,14 +140,16 @@ public class TileEntityColorizer extends TileEntityInventoryBase {
 	public void setColorStorage(double[] colorStorage) {
 		this.colorStorage = colorStorage;
 		// String side = this.worldObj.isRemote?"client":"server";
-		// MultiDye.log.info(side + ":a:" + this.colorStorage[0] + "|" + this.colorStorage[1] + "|"
+		// MultiDye.log.info(side + ":a:" + this.colorStorage[0] + "|" +
+		// this.colorStorage[1] + "|"
 		// + this.colorStorage[2]);
 	}
 	
 	public void setColorStorage(int index, double value) {
 		this.colorStorage[index] = value;
 		// String side = this.worldObj.isRemote?"client":"server";
-		// MultiDye.log.info(side + ":b:" + this.colorStorage[0] + "|" + this.colorStorage[1] + "|"
+		// MultiDye.log.info(side + ":b:" + this.colorStorage[0] + "|" +
+		// this.colorStorage[1] + "|"
 		// + this.colorStorage[2]);
 	}
 	
@@ -137,9 +157,14 @@ public class TileEntityColorizer extends TileEntityInventoryBase {
 		double[] costs = sumHex;
 		
 		DecimalFormat df = new DecimalFormat("##.##");
-		double newR = Double.parseDouble(df.format(this.colorStorage[0] - costs[0]));
-		double newG = Double.parseDouble(df.format(this.colorStorage[1] - costs[1]));
-		double newB = Double.parseDouble(df.format(this.colorStorage[2] - costs[2]));
+		
+		for (int i = 0; i < costs.length; i++) {
+			costs[i] = Double.parseDouble(df.format(costs[i]));
+		}
+		
+		double newR = Double.parseDouble(df.format(this.colorStorage[0] + costs[0]));
+		double newG = Double.parseDouble(df.format(this.colorStorage[1] + costs[1]));
+		double newB = Double.parseDouble(df.format(this.colorStorage[2] + costs[2]));
 		double[] newStorage = new double[] {
 				newR, newG, newB
 		};

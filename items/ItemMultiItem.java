@@ -84,8 +84,8 @@ public class ItemMultiItem extends ItemBase {
 	@Override
 	public void onUpdate(ItemStack itemStack, World world, Entity entity, int par4,
 			boolean isCurrentItem) {
-		if (itemStack != null && !itemStack.hasTagCompound() && false) {
-			NBTTagCompound tagCom = ItemMultiItem.emptyTagCom;
+		if (itemStack != null && !itemStack.hasTagCompound()) {
+			NBTTagCompound tagCom = new NBTTagCompound();
 			tagCom.setTag("multiTagCom", this.newMultiTagCompound());
 			itemStack.setTagCompound(tagCom);
 		}
