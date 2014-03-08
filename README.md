@@ -1,2 +1,2 @@
-AuxiliaryObjects
+Contingently Augmented Preposterous Objects
 ================
