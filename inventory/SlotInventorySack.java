@@ -1,11 +1,11 @@
-package com.countrygamer.auxiliaryobjects.inventory;
+package com.countrygamer.capo.inventory;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-import com.countrygamer.auxiliaryobjects.items.ItemInventorySack;
+import com.countrygamer.capo.items.ItemInventorySack;
 
 public class SlotInventorySack extends Slot {
 	

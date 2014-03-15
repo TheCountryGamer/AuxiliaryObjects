@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.client.render;
+package com.countrygamer.capo.client.render;
 
 import com.countrygamer.core.client.block.tiles.ModelBase;
 

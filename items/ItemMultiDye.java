@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.items;
+package com.countrygamer.capo.items;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;

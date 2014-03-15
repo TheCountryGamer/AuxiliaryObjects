@@ -1,12 +1,12 @@
-package com.countrygamer.auxiliaryobjects.inventory;
+package com.countrygamer.capo.inventory;
 
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityColorizer;
-import com.countrygamer.auxiliaryobjects.items.ItemMultiDye;
+import com.countrygamer.capo.blocks.tiles.TileEntityColorizer;
+import com.countrygamer.capo.items.ItemMultiDye;
 import com.countrygamer.core.inventory.ContainerBlockBase;
 
 import cpw.mods.fml.relauncher.Side;

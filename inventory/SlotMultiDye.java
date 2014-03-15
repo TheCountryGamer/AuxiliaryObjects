@@ -1,10 +1,10 @@
-package com.countrygamer.auxiliaryobjects.inventory;
+package com.countrygamer.capo.inventory;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-import com.countrygamer.auxiliaryobjects.items.ItemMultiDye;
+import com.countrygamer.capo.items.ItemMultiDye;
 
 public class SlotMultiDye extends Slot {
 	

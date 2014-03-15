@@ -1,10 +1,10 @@
-package com.countrygamer.auxiliaryobjects.items;
+package com.countrygamer.capo.items;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.Capo;
+import com.countrygamer.capo.Capo;
 import com.countrygamer.core.Items.ItemBase;
 
 public class ItemEnderShard extends ItemBase {

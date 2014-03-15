@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.blocks;
+package com.countrygamer.capo.blocks;
 
 import java.util.Random;
 
@@ -14,9 +14,9 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.Capo;
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityTele;
-import com.countrygamer.auxiliaryobjects.items.ItemTeleCore;
+import com.countrygamer.capo.Capo;
+import com.countrygamer.capo.blocks.tiles.TileEntityTele;
+import com.countrygamer.capo.items.ItemTeleCore;
 import com.countrygamer.core.Core;
 import com.countrygamer.core.block.BlockContainerBase;
 import com.countrygamer.core.lib.CoreUtil;
@@ -211,4 +211,5 @@ public class BlockTeleBase extends BlockContainerBase {
 
 		super.breakBlock(world, x, y, z, par5, par6);
 	}
+	
 }

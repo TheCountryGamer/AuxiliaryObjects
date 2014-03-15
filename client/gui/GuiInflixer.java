@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.client.gui;
+package com.countrygamer.capo.client.gui;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.entity.player.EntityPlayer;
@@ -7,13 +7,13 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.auxiliaryobjects.Capo;
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityInflixer;
-import com.countrygamer.auxiliaryobjects.inventory.ContainerInflixer;
-import com.countrygamer.auxiliaryobjects.items.ItemMultiItem;
-import com.countrygamer.auxiliaryobjects.lib.EnumPartition;
-import com.countrygamer.auxiliaryobjects.lib.Reference;
-import com.countrygamer.auxiliaryobjects.packet.PacketTriggerInflixer;
+import com.countrygamer.capo.Capo;
+import com.countrygamer.capo.blocks.tiles.TileEntityInflixer;
+import com.countrygamer.capo.inventory.ContainerInflixer;
+import com.countrygamer.capo.items.ItemMultiItem;
+import com.countrygamer.capo.lib.EnumPartition;
+import com.countrygamer.capo.lib.Reference;
+import com.countrygamer.capo.packet.PacketTriggerInflixer;
 import com.countrygamer.core.client.gui.GuiButtonArrow;
 import com.countrygamer.core.client.gui.GuiContainerBlockBase;
 
@@ -46,7 +46,7 @@ public class GuiInflixer extends GuiContainerBlockBase {
 				this.guiTop + 70, GuiButtonArrow.ButtonType.DOWN));
 		
 		this.buttonList.add(this.inflix = new GuiButton(buttonID++,
-				this.guiLeft + (this.xSize / 4), this.guiTop + (this.ySize / 4), 50, 20, "Inflix"));
+				this.guiLeft + (this.xSize / 4), this.guiTop + 15, 50, 20, "Inflix"));
 		this.buttonList.add(this.partition = new GuiButton(buttonID++,
 				this.guiLeft + (this.xSize / 4), this.guiTop + (this.ySize / 3), 50, 20,
 				"Partition"));

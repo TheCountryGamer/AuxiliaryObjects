@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.client.gui;
+package com.countrygamer.capo.client.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;

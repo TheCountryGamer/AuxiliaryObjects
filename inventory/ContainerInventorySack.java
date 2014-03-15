@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.inventory;
+package com.countrygamer.capo.inventory;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;

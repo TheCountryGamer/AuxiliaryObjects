@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.proxy;
+package com.countrygamer.capo.proxy;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
 

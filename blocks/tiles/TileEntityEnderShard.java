@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.blocks.tiles;
+package com.countrygamer.capo.blocks.tiles;
 
 import java.util.Random;
 
@@ -9,7 +9,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.Capo;
+import com.countrygamer.capo.Capo;
 import com.countrygamer.core.block.tiles.TileEntityInventoryBase;
 
 import cpw.mods.fml.relauncher.Side;
@@ -41,8 +41,8 @@ public class TileEntityEnderShard extends TileEntityInventoryBase {
 				this.setInventorySlotContents(0, new ItemStack(
 						Items.ender_pearl, 1));
 				this.markDirty();
-				if (!this.worldObj.isRemote)
-					Capo.log.info("Gen'd Ender Pearl");
+				//if (!this.worldObj.isRemote)
+				//	Capo.log.info("Gen'd Ender Pearl");
 				return;
 			} else
 				this.oreGenTime--;

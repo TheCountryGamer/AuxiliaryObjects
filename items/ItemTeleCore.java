@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.items;
+package com.countrygamer.capo.items;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -6,8 +6,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.Capo;
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityTele;
+import com.countrygamer.capo.Capo;
+import com.countrygamer.capo.blocks.tiles.TileEntityTele;
 import com.countrygamer.core.Items.ItemBase;
 import com.countrygamer.core.lib.CoreUtil;
 

@@ -1,10 +1,10 @@
-package com.countrygamer.auxiliaryobjects.packet;
+package com.countrygamer.capo.packet;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityInflixer;
+import com.countrygamer.capo.blocks.tiles.TileEntityInflixer;
 import com.countrygamer.core.Handler.AbstractPacket;
 
 public class PacketTriggerInflixer extends AbstractPacket {

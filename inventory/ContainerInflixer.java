@@ -1,9 +1,9 @@
-package com.countrygamer.auxiliaryobjects.inventory;
+package com.countrygamer.capo.inventory;
 
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 
-import com.countrygamer.auxiliaryobjects.items.ItemMultiItem;
+import com.countrygamer.capo.items.ItemMultiItem;
 import com.countrygamer.core.block.tiles.TileEntityInventoryBase;
 import com.countrygamer.core.inventory.ContainerBlockBase;
 

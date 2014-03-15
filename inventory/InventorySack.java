@@ -1,8 +1,8 @@
-package com.countrygamer.auxiliaryobjects.inventory;
+package com.countrygamer.capo.inventory;
 
 import net.minecraft.item.ItemStack;
 
-import com.countrygamer.auxiliaryobjects.items.ItemInventorySack;
+import com.countrygamer.capo.items.ItemInventorySack;
 import com.countrygamer.core.inventory.InventoryItemBase;
 
 public class InventorySack extends InventoryItemBase {

@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.packet;
+package com.countrygamer.capo.packet;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -6,7 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-import com.countrygamer.auxiliaryobjects.items.ItemInventorySack;
+import com.countrygamer.capo.items.ItemInventorySack;
 import com.countrygamer.core.Handler.AbstractPacket;
 
 public class PacketSackName extends AbstractPacket {

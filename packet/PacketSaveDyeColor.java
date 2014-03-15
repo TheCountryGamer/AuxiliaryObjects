@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.packet;
+package com.countrygamer.capo.packet;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -6,10 +6,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-import com.countrygamer.auxiliaryobjects.Capo;
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityColorizer;
-import com.countrygamer.auxiliaryobjects.inventory.ContainerColorizer;
-import com.countrygamer.auxiliaryobjects.items.ItemMultiDye;
+import com.countrygamer.capo.Capo;
+import com.countrygamer.capo.blocks.tiles.TileEntityColorizer;
+import com.countrygamer.capo.inventory.ContainerColorizer;
+import com.countrygamer.capo.items.ItemMultiDye;
 import com.countrygamer.core.Handler.AbstractPacket;
 
 public class PacketSaveDyeColor extends AbstractPacket {

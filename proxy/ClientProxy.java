@@ -1,14 +1,14 @@
-package com.countrygamer.auxiliaryobjects.proxy;
+package com.countrygamer.capo.proxy;
 
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 
-import com.countrygamer.auxiliaryobjects.Capo;
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityEnderShard;
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityTele;
-import com.countrygamer.auxiliaryobjects.client.render.ItemRenderTeleCore;
-import com.countrygamer.auxiliaryobjects.client.render.RenderEnderShard;
-import com.countrygamer.auxiliaryobjects.client.render.TileEntityTeleRenderer;
+import com.countrygamer.capo.Capo;
+import com.countrygamer.capo.blocks.tiles.TileEntityEnderShard;
+import com.countrygamer.capo.blocks.tiles.TileEntityTele;
+import com.countrygamer.capo.client.render.ItemRenderTeleCore;
+import com.countrygamer.capo.client.render.RenderEnderShard;
+import com.countrygamer.capo.client.render.TileEntityTeleRenderer;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;

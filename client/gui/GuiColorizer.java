@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.client.gui;
+package com.countrygamer.capo.client.gui;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -15,13 +15,13 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.auxiliaryobjects.Capo;
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityColorizer;
-import com.countrygamer.auxiliaryobjects.inventory.ContainerColorizer;
-import com.countrygamer.auxiliaryobjects.items.ItemMultiDye;
-import com.countrygamer.auxiliaryobjects.lib.Reference;
-import com.countrygamer.auxiliaryobjects.packet.PacketSaveDyeColor;
-import com.countrygamer.auxiliaryobjects.packet.PacketSubColorsTE;
+import com.countrygamer.capo.Capo;
+import com.countrygamer.capo.blocks.tiles.TileEntityColorizer;
+import com.countrygamer.capo.inventory.ContainerColorizer;
+import com.countrygamer.capo.items.ItemMultiDye;
+import com.countrygamer.capo.lib.Reference;
+import com.countrygamer.capo.packet.PacketSaveDyeColor;
+import com.countrygamer.capo.packet.PacketSubColorsTE;
 import com.countrygamer.core.client.gui.GuiContainerBlockBase;
 import com.countrygamer.core.lib.CoreUtilHex;
 
@@ -245,9 +245,15 @@ public class GuiColorizer extends GuiContainerBlockBase {
 		this.guiLeft = (this.width - this.xSize) / 2;
 		this.guiTop = (this.height - this.ySize) / 2;
 		drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
+		
+		this.typeColor_Field.drawTextBox();
+		this.rVal_Field.drawTextBox();
+		this.gVal_Field.drawTextBox();
+		this.bVal_Field.drawTextBox();
+
+		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		super.backgroundObjects();
 		
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		this.mc.getTextureManager().bindTexture(this.bkgdTex);
 		
 		int maxSize = (int) (this.tileEntColor.maxColorStorage * 10);
@@ -337,7 +343,7 @@ public class GuiColorizer extends GuiContainerBlockBase {
 					hoverInfo.add("Invalid hex code");
 				if (!this.hasColorsForDyeing()) hoverInfo.add("Does not have apt color storage");
 				if (this.tileEntColor.getStackInSlot(0) == null)
-					hoverInfo.add("Not MultiDye item");
+					hoverInfo.add("No Multi-Dye item");
 				
 				this.renderHoverTip(hoverInfo, mouseX, mouseY);
 			}

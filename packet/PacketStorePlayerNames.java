@@ -1,22 +1,11 @@
-package com.countrygamer.auxiliaryobjects.packet;
+package com.countrygamer.capo.packet;
 
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.ByteBufInputStream;
-import io.netty.buffer.ByteBufOutputStream;
 import io.netty.channel.ChannelHandlerContext;
-
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.nbt.CompressedStreamTools;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-import com.countrygamer.auxiliaryobjects.Capo;
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityPlayerChecker;
+import com.countrygamer.capo.blocks.tiles.TileEntityPlayerChecker;
 import com.countrygamer.core.Handler.AbstractPacket;
 
 public class PacketStorePlayerNames extends AbstractPacket {

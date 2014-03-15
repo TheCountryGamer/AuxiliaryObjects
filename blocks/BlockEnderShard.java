@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.blocks;
+package com.countrygamer.capo.blocks;
 
 import java.util.Random;
 
@@ -10,8 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.Capo;
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityEnderShard;
+import com.countrygamer.capo.Capo;
+import com.countrygamer.capo.blocks.tiles.TileEntityEnderShard;
 import com.countrygamer.core.block.BlockContainerBase;
 
 public class BlockEnderShard extends BlockContainerBase {

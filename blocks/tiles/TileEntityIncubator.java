@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.blocks.tiles;
+package com.countrygamer.capo.blocks.tiles;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;

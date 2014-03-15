@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.items;
+package com.countrygamer.capo.items;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.Capo;
+import com.countrygamer.capo.Capo;
 import com.countrygamer.core.Items.ItemMetadataBase;
 
 public class ItemCharm extends ItemMetadataBase {

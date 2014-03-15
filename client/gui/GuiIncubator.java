@@ -1,13 +1,13 @@
-package com.countrygamer.auxiliaryobjects.client.gui;
+package com.countrygamer.capo.client.gui;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityIncubator;
-import com.countrygamer.auxiliaryobjects.inventory.ContainerIncubator;
-import com.countrygamer.auxiliaryobjects.lib.Reference;
+import com.countrygamer.capo.blocks.tiles.TileEntityIncubator;
+import com.countrygamer.capo.inventory.ContainerIncubator;
+import com.countrygamer.capo.lib.Reference;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

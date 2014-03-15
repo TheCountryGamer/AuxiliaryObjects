@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.client.gui;
+package com.countrygamer.capo.client.gui;
 
 import io.netty.buffer.Unpooled;
 
@@ -20,9 +20,9 @@ import org.apache.logging.log4j.LogManager;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.auxiliaryobjects.Capo;
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityPlayerChecker;
-import com.countrygamer.auxiliaryobjects.packet.PacketStorePlayerNames;
+import com.countrygamer.capo.Capo;
+import com.countrygamer.capo.blocks.tiles.TileEntityPlayerChecker;
+import com.countrygamer.capo.packet.PacketStorePlayerNames;
 import com.countrygamer.core.client.gui.GuiButtonCheck;
 import com.countrygamer.core.lib.CoreReference;
 

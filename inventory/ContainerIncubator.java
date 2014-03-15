@@ -1,6 +1,6 @@
-package com.countrygamer.auxiliaryobjects.inventory;
+package com.countrygamer.capo.inventory;
 
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityIncubator;
+import com.countrygamer.capo.blocks.tiles.TileEntityIncubator;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;

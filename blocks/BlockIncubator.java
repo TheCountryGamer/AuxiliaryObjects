@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.blocks;
+package com.countrygamer.capo.blocks;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -6,7 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.Capo;
+import com.countrygamer.capo.Capo;
 import com.countrygamer.core.block.BlockContainerBase;
 
 import cpw.mods.fml.relauncher.Side;

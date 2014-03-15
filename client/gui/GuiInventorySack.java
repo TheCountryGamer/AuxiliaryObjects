@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.client.gui;
+package com.countrygamer.capo.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
@@ -8,11 +8,11 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 
-import com.countrygamer.auxiliaryobjects.Capo;
-import com.countrygamer.auxiliaryobjects.inventory.ContainerInventorySack;
-import com.countrygamer.auxiliaryobjects.items.ItemInventorySack;
-import com.countrygamer.auxiliaryobjects.lib.Reference;
-import com.countrygamer.auxiliaryobjects.packet.PacketSackName;
+import com.countrygamer.capo.Capo;
+import com.countrygamer.capo.inventory.ContainerInventorySack;
+import com.countrygamer.capo.items.ItemInventorySack;
+import com.countrygamer.capo.lib.Reference;
+import com.countrygamer.capo.packet.PacketSackName;
 import com.countrygamer.core.client.gui.GuiContainerItemBase;
 import com.countrygamer.core.inventory.InventoryItemBase;
 

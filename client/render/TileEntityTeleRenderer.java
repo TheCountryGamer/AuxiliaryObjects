@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.client.render;
+package com.countrygamer.capo.client.render;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -10,9 +10,9 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.auxiliaryobjects.Capo;
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityTele;
-import com.countrygamer.auxiliaryobjects.lib.Reference;
+import com.countrygamer.capo.Capo;
+import com.countrygamer.capo.blocks.tiles.TileEntityTele;
+import com.countrygamer.capo.lib.Reference;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

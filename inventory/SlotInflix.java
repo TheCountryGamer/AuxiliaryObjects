@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.inventory;
+package com.countrygamer.capo.inventory;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
@@ -12,7 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
 
-import com.countrygamer.auxiliaryobjects.items.ItemMultiItem;
+import com.countrygamer.capo.items.ItemMultiItem;
 
 public class SlotInflix extends Slot {
 	

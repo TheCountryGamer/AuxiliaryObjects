@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.blocks.tiles;
+package com.countrygamer.capo.blocks.tiles;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,8 +15,8 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.util.AxisAlignedBB;
 
-import com.countrygamer.auxiliaryobjects.Capo;
-import com.countrygamer.auxiliaryobjects.items.ItemTeleCore;
+import com.countrygamer.capo.Capo;
+import com.countrygamer.capo.items.ItemTeleCore;
 import com.countrygamer.core.Core;
 import com.countrygamer.core.block.tiles.TileEntityInventoryBase;
 import com.countrygamer.core.lib.CoreUtil;

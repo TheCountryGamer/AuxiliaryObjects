@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.blocks;
+package com.countrygamer.capo.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -7,9 +7,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.Capo;
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityPlayerChecker;
-import com.countrygamer.auxiliaryobjects.lib.Reference;
+import com.countrygamer.capo.Capo;
+import com.countrygamer.capo.blocks.tiles.TileEntityPlayerChecker;
+import com.countrygamer.capo.lib.Reference;
 import com.countrygamer.core.block.BlockContainerBase;
 
 public class BlockPlayerChecker extends BlockContainerBase {

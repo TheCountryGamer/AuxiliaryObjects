@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.client.render;
+package com.countrygamer.capo.client.render;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

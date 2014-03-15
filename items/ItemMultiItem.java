@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.items;
+package com.countrygamer.capo.items;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,8 +40,8 @@ import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
 
-import com.countrygamer.auxiliaryobjects.Capo;
-import com.countrygamer.auxiliaryobjects.lib.EnumPartition;
+import com.countrygamer.capo.Capo;
+import com.countrygamer.capo.lib.EnumPartition;
 import com.countrygamer.core.Core;
 import com.countrygamer.core.Items.ItemBase;
 import com.countrygamer.core.lib.CoreUtil;

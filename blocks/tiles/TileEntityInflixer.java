@@ -1,13 +1,10 @@
-package com.countrygamer.auxiliaryobjects.blocks.tiles;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.countrygamer.capo.blocks.tiles;
 
 import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 
-import com.countrygamer.auxiliaryobjects.items.ItemMultiItem;
-import com.countrygamer.auxiliaryobjects.lib.EnumPartition;
+import com.countrygamer.capo.items.ItemMultiItem;
+import com.countrygamer.capo.lib.EnumPartition;
 import com.countrygamer.core.block.tiles.TileEntityInventoryBase;
 import com.countrygamer.core.lib.CoreUtil;
 

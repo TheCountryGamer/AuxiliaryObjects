@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects;
+package com.countrygamer.capo;
 
 import java.util.HashMap;
 import java.util.logging.Logger;
@@ -24,37 +24,37 @@ import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 
-import com.countrygamer.auxiliaryobjects.blocks.BlockColorizer;
-import com.countrygamer.auxiliaryobjects.blocks.BlockEnderShard;
-import com.countrygamer.auxiliaryobjects.blocks.BlockInflixer;
-import com.countrygamer.auxiliaryobjects.blocks.BlockPlayerChecker;
-import com.countrygamer.auxiliaryobjects.blocks.BlockTeleBase;
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityColorizer;
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityEnderShard;
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityInflixer;
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityPlayerChecker;
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityTele;
-import com.countrygamer.auxiliaryobjects.client.gui.GuiColorizer;
-import com.countrygamer.auxiliaryobjects.client.gui.GuiInflixer;
-import com.countrygamer.auxiliaryobjects.client.gui.GuiInventorySack;
-import com.countrygamer.auxiliaryobjects.client.gui.GuiPlayerChecker;
-import com.countrygamer.auxiliaryobjects.inventory.ContainerColorizer;
-import com.countrygamer.auxiliaryobjects.inventory.ContainerInflixer;
-import com.countrygamer.auxiliaryobjects.inventory.ContainerInventorySack;
-import com.countrygamer.auxiliaryobjects.inventory.InventorySack;
-import com.countrygamer.auxiliaryobjects.items.ItemCharm;
-import com.countrygamer.auxiliaryobjects.items.ItemInventorySack;
-import com.countrygamer.auxiliaryobjects.items.ItemMultiDye;
-import com.countrygamer.auxiliaryobjects.items.ItemMultiItem;
-import com.countrygamer.auxiliaryobjects.items.ItemTeleCore;
-import com.countrygamer.auxiliaryobjects.lib.EnumPartition;
-import com.countrygamer.auxiliaryobjects.lib.Reference;
-import com.countrygamer.auxiliaryobjects.packet.PacketSackName;
-import com.countrygamer.auxiliaryobjects.packet.PacketSaveDyeColor;
-import com.countrygamer.auxiliaryobjects.packet.PacketStorePlayerNames;
-import com.countrygamer.auxiliaryobjects.packet.PacketSubColorsTE;
-import com.countrygamer.auxiliaryobjects.packet.PacketTriggerInflixer;
-import com.countrygamer.auxiliaryobjects.proxy.ServerProxy;
+import com.countrygamer.capo.blocks.BlockColorizer;
+import com.countrygamer.capo.blocks.BlockEnderShard;
+import com.countrygamer.capo.blocks.BlockInflixer;
+import com.countrygamer.capo.blocks.BlockPlayerChecker;
+import com.countrygamer.capo.blocks.BlockTeleBase;
+import com.countrygamer.capo.blocks.tiles.TileEntityColorizer;
+import com.countrygamer.capo.blocks.tiles.TileEntityEnderShard;
+import com.countrygamer.capo.blocks.tiles.TileEntityInflixer;
+import com.countrygamer.capo.blocks.tiles.TileEntityPlayerChecker;
+import com.countrygamer.capo.blocks.tiles.TileEntityTele;
+import com.countrygamer.capo.client.gui.GuiColorizer;
+import com.countrygamer.capo.client.gui.GuiInflixer;
+import com.countrygamer.capo.client.gui.GuiInventorySack;
+import com.countrygamer.capo.client.gui.GuiPlayerChecker;
+import com.countrygamer.capo.inventory.ContainerColorizer;
+import com.countrygamer.capo.inventory.ContainerInflixer;
+import com.countrygamer.capo.inventory.ContainerInventorySack;
+import com.countrygamer.capo.inventory.InventorySack;
+import com.countrygamer.capo.items.ItemCharm;
+import com.countrygamer.capo.items.ItemInventorySack;
+import com.countrygamer.capo.items.ItemMultiDye;
+import com.countrygamer.capo.items.ItemMultiItem;
+import com.countrygamer.capo.items.ItemTeleCore;
+import com.countrygamer.capo.lib.EnumPartition;
+import com.countrygamer.capo.lib.Reference;
+import com.countrygamer.capo.packet.PacketSackName;
+import com.countrygamer.capo.packet.PacketSaveDyeColor;
+import com.countrygamer.capo.packet.PacketStorePlayerNames;
+import com.countrygamer.capo.packet.PacketSubColorsTE;
+import com.countrygamer.capo.packet.PacketTriggerInflixer;
+import com.countrygamer.capo.proxy.ServerProxy;
 import com.countrygamer.core.Core;
 import com.countrygamer.core.Handler.PacketPipeline;
 import com.countrygamer.core.Items.ItemBase;
@@ -190,21 +190,13 @@ public class Capo implements IFuelHandler, IGuiHandler {
 				Capo.stableCoreName);
 		Core.addItemToTab(Capo.stableCore);
 		
+		/*
 		Capo.talisman = new ItemBase(Reference.MOD_ID, "Talisman");
 		Core.addItemToTab(Capo.talisman);
 		
 		Capo.charm = new ItemCharm(Reference.MOD_ID, Capo.charmNames);
 		Core.addItemToTab(Capo.charm);
-		Capo.addCharmRecipe(0, "Healing");
-		Capo.addCharmRecipe(1, "Awkward");
-		Capo.addCharmRecipe(2, "Speed");
-		Capo.addCharmRecipe(3, "Jumping");
-		Capo.addCharmRecipe(4, "Regeneration");
-		Capo.addCharmRecipe(5, "Fire Resistance");
-		Capo.addCharmRecipe(6, "Water Breathing");
-		Capo.addCharmRecipe(7, "Invisibility");
-		Capo.addCharmRecipe(8, "Night Vision");
-		
+		*/
 	}
 	
 	public void registerArmor() {
@@ -216,7 +208,7 @@ public class Capo implements IFuelHandler, IGuiHandler {
 				"Ender Shard");
 		Core.addBlockToTab(Capo.endShard);
 		
-		TileEntity.addMapping(TileEntityColorizer.class, Reference.MOD_ID + "_PlayerChecker");
+		TileEntity.addMapping(TileEntityPlayerChecker.class, Reference.MOD_ID + "_PlayerChecker");
 		Capo.playerChecker = new BlockPlayerChecker(Reference.MOD_ID, "Player Checker",
 				TileEntityPlayerChecker.class);
 		Core.addBlockToTab(Capo.playerChecker);
@@ -260,6 +252,8 @@ public class Capo implements IFuelHandler, IGuiHandler {
 						"eee", "ece", "eee", Character.valueOf('e'), Items.ender_pearl,
 						Character.valueOf('c'), Capo.unStableCore
 				});
+		
+		/*
 		GameRegistry.addRecipe(new ItemStack(Capo.talisman), new Object[] {
 				"sgs", "g g", " g ", Character.valueOf('s'), Items.string, Character.valueOf('g'),
 				Items.gold_ingot
@@ -299,6 +293,7 @@ public class Capo implements IFuelHandler, IGuiHandler {
 				});
 			}
 		}
+		*/
 		
 	}
 	
@@ -481,13 +476,6 @@ public class Capo implements IFuelHandler, IGuiHandler {
 	}
 	
 	// ~Other~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	private static void addCharmRecipe(int metadata, String potionName) {
-		GameRegistry.addRecipe(new ItemStack(Capo.charm, 1, metadata), new Object[] {
-				"lpl", "ptp", "lpl", Character.valueOf('l'), new ItemStack(Items.dye, 1, 4),
-				Character.valueOf('t'), Capo.talisman, Character.valueOf('p'),
-				new ItemStack(Items.potionitem, 1, 0)
-		});
-	}
 	
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 }

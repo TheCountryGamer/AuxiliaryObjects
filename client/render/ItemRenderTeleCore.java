@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.client.render;
+package com.countrygamer.capo.client.render;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
@@ -9,7 +9,7 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.auxiliaryobjects.lib.Reference;
+import com.countrygamer.capo.lib.Reference;
 
 public class ItemRenderTeleCore implements IItemRenderer {
 	

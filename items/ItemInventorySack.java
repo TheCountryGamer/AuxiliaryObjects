@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.items;
+package com.countrygamer.capo.items;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.Capo;
-import com.countrygamer.auxiliaryobjects.inventory.InventorySack;
-import com.countrygamer.auxiliaryobjects.lib.Reference;
+import com.countrygamer.capo.Capo;
+import com.countrygamer.capo.inventory.InventorySack;
+import com.countrygamer.capo.lib.Reference;
 import com.countrygamer.core.Items.ItemBase;
 import com.countrygamer.core.inventory.ContainerItemBase;
 

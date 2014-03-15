@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.lib;
+package com.countrygamer.capo.lib;
 
 import net.minecraft.util.ResourceLocation;
 

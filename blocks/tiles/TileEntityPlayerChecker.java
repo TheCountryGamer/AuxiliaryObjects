@@ -1,4 +1,4 @@
-package com.countrygamer.auxiliaryobjects.blocks.tiles;
+package com.countrygamer.capo.blocks.tiles;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,7 +10,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.server.MinecraftServer;
 
-import com.countrygamer.auxiliaryobjects.Capo;
+import com.countrygamer.capo.Capo;
 import com.countrygamer.core.block.tiles.TileEntityBase;
 
 public class TileEntityPlayerChecker extends TileEntityBase {
@@ -71,7 +71,7 @@ public class TileEntityPlayerChecker extends TileEntityBase {
 		this.refreshPlayers();
 		for (String playerName : this.onlinePlayers.keySet()) {
 			boolean isOnline = this.activePlayerNames.contains(playerName);
-			Capo.log.info(playerName + ":" + isOnline);
+			//Capo.log.info(playerName + ":" + isOnline);
 		}
 	}
 	

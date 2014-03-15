@@ -1,12 +1,12 @@
-package com.countrygamer.auxiliaryobjects.client.render;
+package com.countrygamer.capo.client.render;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.auxiliaryobjects.blocks.tiles.TileEntityEnderShard;
-import com.countrygamer.auxiliaryobjects.lib.Reference;
+import com.countrygamer.capo.blocks.tiles.TileEntityEnderShard;
+import com.countrygamer.capo.lib.Reference;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

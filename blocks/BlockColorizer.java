@@ -1,12 +1,12 @@
-package com.countrygamer.auxiliaryobjects.blocks;
+package com.countrygamer.capo.blocks;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-import com.countrygamer.auxiliaryobjects.Capo;
-import com.countrygamer.auxiliaryobjects.lib.Reference;
+import com.countrygamer.capo.Capo;
+import com.countrygamer.capo.lib.Reference;
 import com.countrygamer.core.block.BlockContainerBase;
 
 public class BlockColorizer extends BlockContainerBase {
