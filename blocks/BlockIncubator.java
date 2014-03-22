@@ -7,7 +7,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 import com.countrygamer.capo.Capo;
-import com.countrygamer.core.block.BlockContainerBase;
+import com.countrygamer.core.Base.block.BlockContainerBase;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

@@ -1,16 +1,17 @@
 package com.countrygamer.capo.inventory;
 
+import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemBucket;
-import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemShears;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
+import net.minecraftforge.oredict.OreDictionary;
 
 import com.countrygamer.capo.items.ItemMultiItem;
 
@@ -48,7 +49,14 @@ public class SlotInflix extends Slot {
 		// check for sword
 		valid = valid || item instanceof ItemSword;
 		// check for dyes
-		valid = valid || item instanceof ItemDye;
+		// ArrayList<ItemStack> dyeList;
+		for (int i = 0; i < 16; i++) {
+			ItemStack dyeStack = new ItemStack(Items.dye, 1, i);
+			int oreID = OreDictionary.getOreID(dyeStack);
+			int insertOreID = OreDictionary.getOreID(itemStack);
+			valid = valid || (insertOreID == oreID);
+		}
+		//valid = valid || item instanceof ItemDye;
 		
 		
 		return valid && !(item instanceof ItemMultiItem);

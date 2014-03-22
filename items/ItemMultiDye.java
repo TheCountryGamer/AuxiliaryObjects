@@ -11,7 +11,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 import com.countrygamer.core.Core;
-import com.countrygamer.core.Items.ItemBase;
+import com.countrygamer.core.Base.item.ItemBase;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -90,7 +90,7 @@ public class ItemMultiDye extends ItemBase {
 					.next();
 			String colorName0 = entry0.getKey();
 			int color0 = entry0.getValue();
-			for (Iterator it = colors.entrySet().iterator(); it.hasNext();) {
+			for (Iterator<?> it = colors.entrySet().iterator(); it.hasNext();) {
 				Entry<String, Integer> entry = (Entry<String, Integer>) it.next();
 				String colorName = entry.getKey();
 				int color = entry.getValue();

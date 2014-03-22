@@ -12,7 +12,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
 import com.countrygamer.capo.Capo;
-import com.countrygamer.core.Items.ItemMetadataBase;
+import com.countrygamer.core.Base.item.ItemMetadataBase;
 
 public class ItemCharm extends ItemMetadataBase {
 	

@@ -14,8 +14,8 @@ import com.countrygamer.capo.items.ItemMultiItem;
 import com.countrygamer.capo.lib.EnumPartition;
 import com.countrygamer.capo.lib.Reference;
 import com.countrygamer.capo.packet.PacketTriggerInflixer;
-import com.countrygamer.core.client.gui.GuiButtonArrow;
-import com.countrygamer.core.client.gui.GuiContainerBlockBase;
+import com.countrygamer.core.Base.client.gui.GuiButtonArrow;
+import com.countrygamer.core.Base.client.gui.GuiContainerBlockBase;
 
 public class GuiInflixer extends GuiContainerBlockBase {
 	

@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import com.countrygamer.capo.Capo;
-import com.countrygamer.core.Items.ItemBase;
+import com.countrygamer.core.Base.item.ItemBase;
 
 public class ItemEnderShard extends ItemBase {
 

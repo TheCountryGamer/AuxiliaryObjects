@@ -1,6 +1,5 @@
 package com.countrygamer.capo.proxy;
 
-import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ServerProxy {
 	

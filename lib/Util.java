@@ -7,7 +7,7 @@ import net.minecraft.item.ItemDye;
 public class Util {
 	
 	public static int getColorBlockiD(String color) {
-		HashMap<String, Integer> coloredBlocks = new HashMap();
+		HashMap<String, Integer> coloredBlocks = new HashMap<String, Integer>();
 		for(int i = 0; i < 16; i++) {
 			coloredBlocks.put(
 					ItemDye.field_150921_b[i],

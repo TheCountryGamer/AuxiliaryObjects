@@ -18,7 +18,7 @@ import com.countrygamer.capo.Capo;
 import com.countrygamer.capo.blocks.tiles.TileEntityTele;
 import com.countrygamer.capo.items.ItemTeleCore;
 import com.countrygamer.core.Core;
-import com.countrygamer.core.block.BlockContainerBase;
+import com.countrygamer.core.Base.block.BlockContainerBase;
 import com.countrygamer.core.lib.CoreUtil;
 
 public class BlockTeleBase extends BlockContainerBase {

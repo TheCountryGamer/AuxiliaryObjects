@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 import com.countrygamer.capo.Capo;
 import com.countrygamer.capo.blocks.tiles.TileEntityEnderShard;
-import com.countrygamer.core.block.BlockContainerBase;
+import com.countrygamer.core.Base.block.BlockContainerBase;
 
 public class BlockEnderShard extends BlockContainerBase {
 

@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 
 import com.countrygamer.capo.Capo;
 import com.countrygamer.capo.lib.Reference;
-import com.countrygamer.core.block.BlockContainerBase;
+import com.countrygamer.core.Base.block.BlockContainerBase;
 
 public class BlockColorizer extends BlockContainerBase {
 	

@@ -5,7 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 
 import com.countrygamer.capo.blocks.tiles.TileEntityColorizer;
-import com.countrygamer.core.Handler.AbstractPacket;
+import com.countrygamer.core.Base.packet.AbstractPacket;
 
 public class PacketSubColorsTE extends AbstractPacket {
 	

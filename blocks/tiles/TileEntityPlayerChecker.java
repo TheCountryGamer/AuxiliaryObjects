@@ -1,7 +1,6 @@
 package com.countrygamer.capo.blocks.tiles;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +10,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.server.MinecraftServer;
 
 import com.countrygamer.capo.Capo;
-import com.countrygamer.core.block.tiles.TileEntityBase;
+import com.countrygamer.core.Base.block.tiles.TileEntityBase;
 
 public class TileEntityPlayerChecker extends TileEntityBase {
 	

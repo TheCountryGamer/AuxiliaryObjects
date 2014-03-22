@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 
 import com.countrygamer.capo.blocks.tiles.TileEntityColorizer;
 import com.countrygamer.capo.items.ItemMultiDye;
-import com.countrygamer.core.inventory.ContainerBlockBase;
+import com.countrygamer.core.Base.inventory.ContainerBlockBase;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

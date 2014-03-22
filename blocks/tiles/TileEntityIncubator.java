@@ -4,7 +4,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-import com.countrygamer.core.block.tiles.TileEntityInventoryBase;
+import com.countrygamer.core.Base.block.tiles.TileEntityInventoryBase;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

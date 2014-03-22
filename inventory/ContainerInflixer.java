@@ -4,8 +4,8 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 
 import com.countrygamer.capo.items.ItemMultiItem;
-import com.countrygamer.core.block.tiles.TileEntityInventoryBase;
-import com.countrygamer.core.inventory.ContainerBlockBase;
+import com.countrygamer.core.Base.block.tiles.TileEntityInventoryBase;
+import com.countrygamer.core.Base.inventory.ContainerBlockBase;
 
 public class ContainerInflixer extends ContainerBlockBase {
 	

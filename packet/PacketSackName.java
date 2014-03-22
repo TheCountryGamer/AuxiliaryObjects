@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 import com.countrygamer.capo.items.ItemInventorySack;
-import com.countrygamer.core.Handler.AbstractPacket;
+import com.countrygamer.core.Base.packet.AbstractPacket;
 
 public class PacketSackName extends AbstractPacket {
 	

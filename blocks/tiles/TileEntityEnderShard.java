@@ -10,7 +10,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 import com.countrygamer.capo.Capo;
-import com.countrygamer.core.block.tiles.TileEntityInventoryBase;
+import com.countrygamer.core.Base.block.tiles.TileEntityInventoryBase;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

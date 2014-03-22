@@ -18,12 +18,12 @@ import net.minecraft.util.AxisAlignedBB;
 import com.countrygamer.capo.Capo;
 import com.countrygamer.capo.items.ItemTeleCore;
 import com.countrygamer.core.Core;
-import com.countrygamer.core.block.tiles.TileEntityInventoryBase;
+import com.countrygamer.core.Base.block.tiles.TileEntityInventoryBase;
 import com.countrygamer.core.lib.CoreUtil;
 
 public class TileEntityTele extends TileEntityInventoryBase {
 
-	private HashMap<String, Integer> slotIDs = new HashMap();
+	private HashMap<String, Integer> slotIDs = new HashMap<String, Integer>();
 	public float[] coreModelRotations = new float[3];
 	public boolean isPowered = false;
 
@@ -112,7 +112,7 @@ public class TileEntityTele extends TileEntityInventoryBase {
 
 			int r = 3;
 
-			List players = this.worldObj.getEntitiesWithinAABB(
+			List<?> players = this.worldObj.getEntitiesWithinAABB(
 					EntityPlayer.class, AxisAlignedBB.getBoundingBox(
 							this.xCoord - r, this.yCoord - 0, this.zCoord - r,
 							this.xCoord + r, this.yCoord + 1, this.zCoord + r));

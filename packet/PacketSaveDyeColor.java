@@ -10,7 +10,7 @@ import com.countrygamer.capo.Capo;
 import com.countrygamer.capo.blocks.tiles.TileEntityColorizer;
 import com.countrygamer.capo.inventory.ContainerColorizer;
 import com.countrygamer.capo.items.ItemMultiDye;
-import com.countrygamer.core.Handler.AbstractPacket;
+import com.countrygamer.core.Base.packet.AbstractPacket;
 
 public class PacketSaveDyeColor extends AbstractPacket {
 	String	colorString	= "";

@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 
 import com.countrygamer.capo.Capo;
 import com.countrygamer.capo.blocks.tiles.TileEntityTele;
-import com.countrygamer.core.Items.ItemBase;
+import com.countrygamer.core.Base.item.ItemBase;
 import com.countrygamer.core.lib.CoreUtil;
 
 public class ItemTeleCore extends ItemBase {

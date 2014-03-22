@@ -13,8 +13,8 @@ import com.countrygamer.capo.inventory.ContainerInventorySack;
 import com.countrygamer.capo.items.ItemInventorySack;
 import com.countrygamer.capo.lib.Reference;
 import com.countrygamer.capo.packet.PacketSackName;
-import com.countrygamer.core.client.gui.GuiContainerItemBase;
-import com.countrygamer.core.inventory.InventoryItemBase;
+import com.countrygamer.core.Base.client.gui.GuiContainerItemBase;
+import com.countrygamer.core.Base.inventory.InventoryItemBase;
 
 public class GuiInventorySack extends GuiContainerItemBase {
 	

@@ -1,5 +1,6 @@
 package com.countrygamer.capo.client.render;
 
+import com.countrygamer.capo.client.model.ModelCore;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
@@ -18,9 +19,9 @@ public class ItemRenderTeleCore implements IItemRenderer {
 	
 	@Override
 	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-		if (type.equals(type.EQUIPPED)
-				|| type.equals(type.EQUIPPED_FIRST_PERSON)
-				|| type.equals(type.ENTITY)) {
+		if (type.equals(ItemRenderType.EQUIPPED)
+				|| type.equals(ItemRenderType.EQUIPPED_FIRST_PERSON)
+				|| type.equals(ItemRenderType.ENTITY)) {
 			return true;
 		}
 		return false;
@@ -35,9 +36,9 @@ public class ItemRenderTeleCore implements IItemRenderer {
 	@Override
 	public void renderItem(ItemRenderType type, ItemStack itemStack,
 			Object... data) {
-		if (type.equals(type.EQUIPPED)
-				|| type.equals(type.EQUIPPED_FIRST_PERSON)
-				|| type.equals(type.ENTITY)) {
+		if (type.equals(ItemRenderType.EQUIPPED)
+				|| type.equals(ItemRenderType.EQUIPPED_FIRST_PERSON)
+				|| type.equals(ItemRenderType.ENTITY)) {
 			GL11.glPushMatrix();
 			
 			String resource = ".png";

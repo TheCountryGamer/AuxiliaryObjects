@@ -10,8 +10,6 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.client.C17PacketCustomPayload;
 import net.minecraft.util.ResourceLocation;
@@ -23,7 +21,7 @@ import org.lwjgl.opengl.GL11;
 import com.countrygamer.capo.Capo;
 import com.countrygamer.capo.blocks.tiles.TileEntityPlayerChecker;
 import com.countrygamer.capo.packet.PacketStorePlayerNames;
-import com.countrygamer.core.client.gui.GuiButtonCheck;
+import com.countrygamer.core.Base.client.gui.GuiButtonCheck;
 import com.countrygamer.core.lib.CoreReference;
 
 public class GuiPlayerChecker extends GuiScreen {

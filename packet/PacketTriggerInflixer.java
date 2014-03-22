@@ -5,7 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 
 import com.countrygamer.capo.blocks.tiles.TileEntityInflixer;
-import com.countrygamer.core.Handler.AbstractPacket;
+import com.countrygamer.core.Base.packet.AbstractPacket;
 
 public class PacketTriggerInflixer extends AbstractPacket {
 	

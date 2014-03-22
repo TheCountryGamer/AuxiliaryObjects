@@ -1,5 +1,6 @@
 package com.countrygamer.capo.client.render;
 
+import com.countrygamer.capo.client.model.ModelEnderShard;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 
@@ -11,10 +12,10 @@ import com.countrygamer.capo.lib.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class RenderEnderShard extends TileEntitySpecialRenderer {
+public class TileEntityEnderShardRenderer extends TileEntitySpecialRenderer {
 	private ModelEnderShard aModel;
 	
-	public RenderEnderShard() {
+	public TileEntityEnderShardRenderer() {
 		this.aModel = new ModelEnderShard();
 		
 	}

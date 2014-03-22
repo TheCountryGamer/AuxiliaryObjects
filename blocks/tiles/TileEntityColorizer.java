@@ -10,7 +10,7 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 
-import com.countrygamer.core.block.tiles.TileEntityInventoryBase;
+import com.countrygamer.core.Base.block.tiles.TileEntityInventoryBase;
 import com.countrygamer.core.lib.CoreUtilHex;
 
 public class TileEntityColorizer extends TileEntityInventoryBase {
@@ -80,9 +80,9 @@ public class TileEntityColorizer extends TileEntityInventoryBase {
 	private boolean canAbsorb(double[] addedDye) {
 		double currentR = this.getColorStorage()[0], currentG = this.getColorStorage()[1], currentB = this
 				.getColorStorage()[2];
-		return currentR + addedDye[0] <= this.maxColorStorage
-				&& currentG + addedDye[1] <= this.maxColorStorage
-				&& currentB + addedDye[2] <= this.maxColorStorage;
+		return currentR + addedDye[0] <= TileEntityColorizer.maxColorStorage
+				&& currentG + addedDye[1] <= TileEntityColorizer.maxColorStorage
+				&& currentB + addedDye[2] <= TileEntityColorizer.maxColorStorage;
 	}
 	
 	@Override

@@ -1,6 +1,6 @@
-package com.countrygamer.capo.client.render;
+package com.countrygamer.capo.client.model;
 
-import com.countrygamer.core.client.block.tiles.ModelBase;
+import com.countrygamer.core.Base.client.ModelBase;
 
 public class ModelTele extends ModelBase {
 

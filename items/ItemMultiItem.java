@@ -43,7 +43,7 @@ import net.minecraftforge.event.entity.player.FillBucketEvent;
 import com.countrygamer.capo.Capo;
 import com.countrygamer.capo.lib.EnumPartition;
 import com.countrygamer.core.Core;
-import com.countrygamer.core.Items.ItemBase;
+import com.countrygamer.core.Base.item.ItemBase;
 import com.countrygamer.core.lib.CoreUtil;
 import com.google.common.collect.Sets;
 
@@ -86,11 +86,12 @@ public class ItemMultiItem extends ItemBase {
 			boolean isCurrentItem) {
 		if (itemStack != null && !itemStack.hasTagCompound()) {
 			NBTTagCompound tagCom = new NBTTagCompound();
-			tagCom.setTag("multiTagCom", this.newMultiTagCompound());
+			tagCom.setTag("multiTagCom", ItemMultiItem.newMultiTagCompound());
 			itemStack.setTagCompound(tagCom);
 		}
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
 		NBTTagCompound multiTagCom = ItemMultiItem.getMultiTagCompound(itemStack);
@@ -99,7 +100,7 @@ public class ItemMultiItem extends ItemBase {
 		// AuxiliaryObjects.log.info("P;" + ItemMultiItem.getPartition(itemStack));
 		list.add("Partition:   " + ItemMultiItem.getPartition(itemStack).getName());
 		
-		List<ItemStack> stacks = new ArrayList();
+		List<ItemStack> stacks = new ArrayList<ItemStack>();
 		for (int i = 1; i <= ItemMultiItem.maxItemNum; i++) {
 			ItemStack stackInSlot = ItemMultiItem.getStackInSlot(itemStack, i);
 			if (stackInSlot != null) stacks.add(stackInSlot);
@@ -499,8 +500,8 @@ public class ItemMultiItem extends ItemBase {
 	 * @return
 	 */
 	public static ItemStack[] getTools(ItemStack sourceStack, String toolType) {
-		List<ItemStack> tools = new ArrayList();
-		NBTTagCompound multiTagCom = ItemMultiItem.getMultiTagCompound(sourceStack);
+		List<ItemStack> tools = new ArrayList<ItemStack>();
+		//NBTTagCompound multiTagCom = ItemMultiItem.getMultiTagCompound(sourceStack);
 		for (int i = 1; i <= ItemMultiItem.maxItemNum; i++) {
 			ItemStack stackInSlot = ItemMultiItem.getStackInSlot(sourceStack, i);
 			if (stackInSlot != null) {
@@ -580,7 +581,7 @@ public class ItemMultiItem extends ItemBase {
 	@Override
 	public boolean canHarvestBlock(Block block, ItemStack itemStack) {
 		ItemStack[] tools = ItemMultiItem.getTools(itemStack, "pickaxe");
-		List<ItemStack> validTools = new ArrayList();
+		List<ItemStack> validTools = new ArrayList<ItemStack>();
 		for (ItemStack toolStack : tools) {
 			if (toolStack.getItem().canHarvestBlock(block, itemStack)) validTools.add(toolStack);
 		}
@@ -856,10 +857,10 @@ public class ItemMultiItem extends ItemBase {
 				// AuxiliaryObjects.log.info("Has potion");
 				ItemStack[] potionStacks = ItemMultiItem.getPotionItemStacks(multiStack);
 				for (ItemStack potionStack : potionStacks) {
-					List list = ((ItemPotion) potionStack.getItem()).getEffects(potionStack);
+					List<?> list = ((ItemPotion) potionStack.getItem()).getEffects(potionStack);
 					
 					if (list != null) {
-						Iterator iterator = list.iterator();
+						Iterator<?> iterator = list.iterator();
 						
 						while (iterator.hasNext()) {
 							PotionEffect potioneffect = (PotionEffect) iterator.next();

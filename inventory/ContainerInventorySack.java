@@ -2,10 +2,9 @@ package com.countrygamer.capo.inventory;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Slot;
 
-import com.countrygamer.core.inventory.ContainerItemBase;
-import com.countrygamer.core.inventory.InventoryItemBase;
+import com.countrygamer.core.Base.inventory.ContainerItemBase;
+import com.countrygamer.core.Base.inventory.InventoryItemBase;
 
 public class ContainerInventorySack extends ContainerItemBase {
 	

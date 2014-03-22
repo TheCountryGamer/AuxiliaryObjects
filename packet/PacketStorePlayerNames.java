@@ -6,7 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 
 import com.countrygamer.capo.blocks.tiles.TileEntityPlayerChecker;
-import com.countrygamer.core.Handler.AbstractPacket;
+import com.countrygamer.core.Base.packet.AbstractPacket;
 
 public class PacketStorePlayerNames extends AbstractPacket {
 

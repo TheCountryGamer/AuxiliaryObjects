@@ -22,7 +22,7 @@ import com.countrygamer.capo.items.ItemMultiDye;
 import com.countrygamer.capo.lib.Reference;
 import com.countrygamer.capo.packet.PacketSaveDyeColor;
 import com.countrygamer.capo.packet.PacketSubColorsTE;
-import com.countrygamer.core.client.gui.GuiContainerBlockBase;
+import com.countrygamer.core.Base.client.gui.GuiContainerBlockBase;
 import com.countrygamer.core.lib.CoreUtilHex;
 
 public class GuiColorizer extends GuiContainerBlockBase {
@@ -256,7 +256,7 @@ public class GuiColorizer extends GuiContainerBlockBase {
 		
 		this.mc.getTextureManager().bindTexture(this.bkgdTex);
 		
-		int maxSize = (int) (this.tileEntColor.maxColorStorage * 10);
+		int maxSize = (int) (TileEntityColorizer.maxColorStorage * 10);
 		int rSize = (int) (this.tileEntColor.getColorStorage()[0] * 10);
 		int gSize = (int) (this.tileEntColor.getColorStorage()[1] * 10);
 		int bSize = (int) (this.tileEntColor.getColorStorage()[2] * 10);
@@ -288,7 +288,7 @@ public class GuiColorizer extends GuiContainerBlockBase {
 	public void drawScreen(int mouseX, int mouseY, float par3) {
 		super.drawScreen(mouseX, mouseY, par3);
 		
-		List hoverInfo = new ArrayList();
+		List<String> hoverInfo = new ArrayList<String>();
 		
 		int width = 6, height = 41;
 		if (this.func_146978_c(this.rStorageX1, this.rStorageY1, width, height, mouseX, mouseY)) {
@@ -351,6 +351,7 @@ public class GuiColorizer extends GuiContainerBlockBase {
 		
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	protected void renderHoverTip(List hoverInfo, int mouseX, int mouseY) {
 		for (int k = 0; k < hoverInfo.size(); ++k) {
 			hoverInfo.set(k, EnumChatFormatting.GRAY + (String) hoverInfo.get(k));

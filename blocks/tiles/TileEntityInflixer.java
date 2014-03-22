@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 
 import com.countrygamer.capo.items.ItemMultiItem;
 import com.countrygamer.capo.lib.EnumPartition;
-import com.countrygamer.core.block.tiles.TileEntityInventoryBase;
+import com.countrygamer.core.Base.block.tiles.TileEntityInventoryBase;
 import com.countrygamer.core.lib.CoreUtil;
 
 public class TileEntityInflixer extends TileEntityInventoryBase {
