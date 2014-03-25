@@ -1,6 +1,6 @@
 package com.countrygamer.capo.blocks.tiles;
 
-import net.minecraft.item.ItemDye;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 import com.countrygamer.capo.items.ItemMultiItem;
@@ -22,7 +22,7 @@ public class TileEntityInflixer extends TileEntityInventoryBase {
 			ItemStack multiStackCopy = multiStack.copy();
 			
 			// TODO, change to custom item (wipes multi item of partition, spits out held items)
-			if (itemToInflix.getItem() instanceof ItemDye && itemToInflix.getItemDamage() == 15) {
+			if (itemToInflix.getItem() == Items.diamond) {
 				for (int i = 1; i <= ItemMultiItem.maxItemNum; i++) {
 					ItemStack stackInSlot = ItemMultiItem.getStackInSlot(multiStackCopy, i);
 					if (stackInSlot != null) {

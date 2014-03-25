@@ -25,24 +25,30 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 
 import com.countrygamer.capo.blocks.BlockColorizer;
+import com.countrygamer.capo.blocks.BlockCompressor;
 import com.countrygamer.capo.blocks.BlockEnderShard;
 import com.countrygamer.capo.blocks.BlockInflixer;
 import com.countrygamer.capo.blocks.BlockIotaTable;
+import com.countrygamer.capo.blocks.BlockMineralExtractor;
 import com.countrygamer.capo.blocks.BlockMultiPipe;
 import com.countrygamer.capo.blocks.BlockPlayerChecker;
 import com.countrygamer.capo.blocks.BlockTeleBase;
 import com.countrygamer.capo.blocks.tiles.TileEntityColorizer;
+import com.countrygamer.capo.blocks.tiles.TileEntityCompressor;
 import com.countrygamer.capo.blocks.tiles.TileEntityEnderShard;
+import com.countrygamer.capo.blocks.tiles.TileEntityExtractor;
 import com.countrygamer.capo.blocks.tiles.TileEntityInflixer;
 import com.countrygamer.capo.blocks.tiles.TileEntityIotaTable;
 import com.countrygamer.capo.blocks.tiles.TileEntityMultiPipe;
 import com.countrygamer.capo.blocks.tiles.TileEntityPlayerChecker;
 import com.countrygamer.capo.blocks.tiles.TileEntityTele;
 import com.countrygamer.capo.client.gui.GuiColorizer;
+import com.countrygamer.capo.client.gui.GuiCompressor;
 import com.countrygamer.capo.client.gui.GuiInflixer;
 import com.countrygamer.capo.client.gui.GuiInventorySack;
 import com.countrygamer.capo.client.gui.GuiPlayerChecker;
 import com.countrygamer.capo.inventory.ContainerColorizer;
+import com.countrygamer.capo.inventory.ContainerCompressor;
 import com.countrygamer.capo.inventory.ContainerInflixer;
 import com.countrygamer.capo.inventory.ContainerInventorySack;
 import com.countrygamer.capo.inventory.InventorySack;
@@ -54,6 +60,7 @@ import com.countrygamer.capo.items.ItemTeleCore;
 import com.countrygamer.capo.items.ItemVainer;
 import com.countrygamer.capo.lib.EnumPartition;
 import com.countrygamer.capo.lib.Reference;
+import com.countrygamer.capo.packet.PacketCompressorMode;
 import com.countrygamer.capo.packet.PacketSackName;
 import com.countrygamer.capo.packet.PacketSaveDyeColor;
 import com.countrygamer.capo.packet.PacketStorePlayerNames;
@@ -129,6 +136,10 @@ public class Capo implements IFuelHandler, IGuiHandler {
 	public static Block multiPipe_Liquid;
 
 	public static Block iotationTable;
+	
+	public static Block mineralExtractor;
+	
+	public static Block compressor;
 
 	// Mod
 	// Compatibility~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -227,7 +238,7 @@ public class Capo implements IFuelHandler, IGuiHandler {
 	public void registerBlocks() {
 		TileEntity.addMapping(TileEntityEnderShard.class, Reference.MOD_ID + "_EnderShard");
 		Capo.endShard = new BlockEnderShard(
-				Material.rock, Reference.MOD_ID, "Ender Shard");
+				Material.ground, Reference.MOD_ID, "Ender Shard");
 		Core.addBlockToTab(Capo.endShard);
 
 		TileEntity.addMapping(TileEntityPlayerChecker.class, Reference.MOD_ID + "_PlayerChecker");
@@ -237,17 +248,17 @@ public class Capo implements IFuelHandler, IGuiHandler {
 
 		TileEntity.addMapping(TileEntityColorizer.class, Reference.MOD_ID + "_Colorizer");
 		Capo.colorizer = new BlockColorizer(
-				Material.rock, Reference.MOD_ID, "Colorizer", TileEntityColorizer.class);
+				Material.ground, Reference.MOD_ID, "Colorizer", TileEntityColorizer.class);
 		Core.addBlockToTab(Capo.colorizer);
 
 		TileEntity.addMapping(TileEntityInflixer.class, Reference.MOD_ID + "_Inflixer");
 		Capo.inflixer = new BlockInflixer(
-				Material.rock, Reference.MOD_ID, "Inflixer", TileEntityInflixer.class);
+				Material.ground, Reference.MOD_ID, "Inflixer", TileEntityInflixer.class);
 		Core.addBlockToTab(Capo.inflixer);
 
 		TileEntity.addMapping(TileEntityTele.class, Reference.MOD_ID + "_Teleporter");
 		Capo.teleporterBase = new BlockTeleBase(
-				Material.rock, Reference.MOD_ID, "Teleporter");
+				Material.ground, Reference.MOD_ID, "Teleporter");
 		Core.addBlockToTab(Capo.teleporterBase);
 
 		TileEntity.addMapping(TileEntityMultiPipe.class, Reference.MOD_ID + "_MultiPipe");
@@ -263,7 +274,7 @@ public class Capo implements IFuelHandler, IGuiHandler {
 
 		TileEntity.addMapping(TileEntityIotaTable.class, Reference.MOD_ID + "_IotaTable");
 		Capo.iotationTable = new BlockIotaTable(
-				Material.rock, Reference.MOD_ID, "Crushing", TileEntityIotaTable.class);
+				Material.ground, Reference.MOD_ID, "Crushing", TileEntityIotaTable.class);
 		Capo.iotationTable.setHardness(0.8F).setResistance(0.5F);
 		Core.addBlockToTab(Capo.iotationTable);
 		GameRegistry.addRecipe(new ItemStack(Capo.iotationTable),
@@ -272,8 +283,23 @@ public class Capo implements IFuelHandler, IGuiHandler {
 				'l', new ItemStack(Blocks.stone_slab, 1, 0),
 				'c', Blocks.cobblestone,
 				'q', new ItemStack(Blocks.stone_slab, 1, 3));
-
-
+		
+		TileEntity.addMapping(TileEntityExtractor.class, Reference.MOD_ID + "_Extractor");
+		Capo.mineralExtractor = new BlockMineralExtractor(
+				Material.ground,
+				Reference.MOD_ID, "Mineral Extractor",
+				TileEntityExtractor.class);
+		Capo.mineralExtractor.setHardness(0.8F).setResistance(0.5F);
+		Core.addBlockToTab(Capo.mineralExtractor);
+		
+		TileEntity.addMapping(TileEntityCompressor.class, Reference.MOD_ID + "_Compressor");
+		Capo.compressor = new BlockCompressor(
+				Material.ground,
+				Reference.MOD_ID, "Compressor",
+				TileEntityCompressor.class);
+		Capo.compressor.setHardness(0.8F).setResistance(0.5F);
+		Core.addBlockToTab(Capo.compressor);
+		
 	}
 
 	public void registerCraftingRecipes() {
@@ -406,6 +432,22 @@ public class Capo implements IFuelHandler, IGuiHandler {
 				's', Blocks.stone,
 				'c', Blocks.cobblestone
 		);
+		
+		GameRegistry.addRecipe(new ItemStack(Capo.mineralExtractor),
+				"cgc", "iii", "ipi",
+				'c', Blocks.cobblestone,
+				'g', Items.gold_ingot,
+				'i', Items.iron_ingot,
+				'p', Items.iron_pickaxe
+			);
+		
+		GameRegistry.addRecipe(new ItemStack(Capo.compressor), 
+				"wpw", "i i", "ici",
+				'w', Blocks.planks,
+				'p', Blocks.piston,
+				'i', Items.iron_ingot,
+				'c', Blocks.cobblestone
+			);
 
 	}
 
@@ -426,6 +468,7 @@ public class Capo implements IFuelHandler, IGuiHandler {
 		Capo.packetChannel.registerPacket(PacketSaveDyeColor.class);
 		Capo.packetChannel.registerPacket(PacketSubColorsTE.class);
 		Capo.packetChannel.registerPacket(PacketTriggerInflixer.class);
+		Capo.packetChannel.registerPacket(PacketCompressorMode.class);
 
 		this.Cofh_ThermalExpansion();
 
@@ -442,9 +485,10 @@ public class Capo implements IFuelHandler, IGuiHandler {
 	}
 
 	// ~Events~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 	@SubscribeEvent
 	public void blockHarvestEvent(HarvestDropsEvent event) {
-		if (event.isSilkTouching) Capo.log.info("silk touch");
+		//if (event.isSilkTouching) Capo.log.info("silk touch");
 		EntityPlayer player = event.harvester;
 		if (player != null) {
 			ItemStack heldStack = player.getHeldItem();
@@ -461,9 +505,8 @@ public class Capo implements IFuelHandler, IGuiHandler {
 						event.dropChance = 1.0F;
 
 						ItemStack multiStack = heldStack.copy();
-						NBTTagCompound multiTagCom = ItemMultiItem.getMultiTagCompound(multiStack);
 						if (ItemMultiItem.takeStack
-								&& ItemMultiItem.getPartition(multiStack) != EnumPartition.BUCKET) {
+								&& ItemMultiItem.getPartition(multiStack) != EnumPartition.LAVABUCKET) {
 							multiStack = ItemMultiItem.setStackInSlot(multiStack,
 									ItemMultiItem.getSlotOfStack(multiStack, usageStack),
 									new ItemStack(Items.bucket));
@@ -534,6 +577,9 @@ public class Capo implements IFuelHandler, IGuiHandler {
 		else if (tileEnt instanceof TileEntityInflixer && ID == Reference.guiInflixer) {
 			return new ContainerInflixer(player.inventory, (TileEntityInflixer) tileEnt);
 		}
+		else if (tileEnt instanceof TileEntityCompressor && ID == Reference.guiCompressor) {
+			return new ContainerCompressor(player.inventory, (TileEntityCompressor) tileEnt);
+		}
 		else if (ID == Reference.guiInvSack) {
 			return new ContainerInventorySack(player, player.inventory, new InventorySack(
 					player.getHeldItem()));
@@ -552,6 +598,9 @@ public class Capo implements IFuelHandler, IGuiHandler {
 		}
 		else if (tileEnt instanceof TileEntityInflixer && ID == Reference.guiInflixer) {
 			return new GuiInflixer(player, (TileEntityInflixer) tileEnt);
+		}
+		else if (tileEnt instanceof TileEntityCompressor && ID == Reference.guiCompressor) {
+			return new GuiCompressor(player, (TileEntityCompressor) tileEnt);
 		}
 		else if (ID == Reference.guiInvSack) {
 			return new GuiInventorySack(player, player.inventory, new InventorySack(

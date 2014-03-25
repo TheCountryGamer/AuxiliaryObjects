@@ -6,6 +6,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemBucket;
+import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemShears;
 import net.minecraft.item.ItemStack;
@@ -38,6 +39,8 @@ public class SlotInflix extends Slot {
 		// valid = valid || item.isValidArmor(itemStack, i, null);
 		// check if tool
 		valid = valid || (item.isItemTool(itemStack) && item instanceof ItemTool);
+		// check if hoe
+		valid = valid || item instanceof ItemHoe;
 		// check if potion
 		valid = valid || item instanceof ItemPotion;
 		// check if bucket

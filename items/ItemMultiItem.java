@@ -7,7 +7,6 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,7 +14,6 @@ import net.minecraft.entity.IEntityMultiPart;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.boss.EntityDragonPart;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -36,8 +34,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.ArrowLooseEvent;
-import net.minecraftforge.event.entity.player.ArrowNockEvent;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
 
 import com.countrygamer.capo.Capo;
@@ -63,7 +59,7 @@ public class ItemMultiItem extends ItemBase {
 	public static final NBTTagCompound	emptyTagCom	= new NBTTagCompound();
 	public static final int				maxItemNum	= 5;
 	public static final int				maxDamage	= 100;
-	public static final boolean			takeStack	= Core.DEBUG;
+	public static final boolean			takeStack	= true;
 	
 	public ItemMultiItem(String modid, String name) {
 		super(modid, name);
@@ -571,7 +567,7 @@ public class ItemMultiItem extends ItemBase {
 		
 		ItemStack[] tools = ItemMultiItem.getTools(stack, toolClass);
 		NBTTagCompound multiTagCom = ItemMultiItem.getMultiTagCompound(stack);
-		if (tools != null && tools[0] != null)
+		if (tools != null && tools.length > 0 && tools[0] != null)
 			return ToolMaterial.valueOf(((ItemTool) tools[0].getItem()).getToolMaterialName())
 					.getEfficiencyOnProperMaterial();
 		else
@@ -833,7 +829,7 @@ public class ItemMultiItem extends ItemBase {
 			
 			HashMap<ItemStack, Boolean> stackBeenUsed = new HashMap<ItemStack, Boolean>();
 			
-			multiStack = this.bowCheckAndAction(multiStack, world, player);
+			multiStack = MultiItemUtil.bowCheckAndAction(multiStack, world, player);
 			
 			// Uses water bucket. If not partitioned, set to empty bucket
 			usageStack = new ItemStack(Items.water_bucket);
@@ -899,7 +895,7 @@ public class ItemMultiItem extends ItemBase {
 			// Uses bucket
 			usageStack = new ItemStack(Items.bucket);
 			if (ItemMultiItem.hasItemInflixed(multiStack, usageStack)) {
-				Capo.log.info("Using bucket");
+				//Capo.log.info("Using bucket");
 				ItemStack newBucket = this.rightClickBucket(usageStack, world, player);
 				multiStack = ItemMultiItem.setStackInSlot(multiStack,
 						ItemMultiItem.getSlotOfStack(multiStack, usageStack), newBucket);
@@ -1031,112 +1027,18 @@ public class ItemMultiItem extends ItemBase {
 		}
 	}
 	
-	public ItemStack bowCheckAndAction(ItemStack multiStack, World world, EntityPlayer player) {
-		int slot = 0;
-		ItemStack bowStack = null;
-		for (int i = 1; i <= ItemMultiItem.maxItemNum; i++) {
-			ItemStack stackInSlot = ItemMultiItem.getStackInSlot(multiStack, i);
-			if (stackInSlot != null && stackInSlot.getItem() == Items.bow) {
-				slot = i;
-				bowStack = stackInSlot;
-				break;
-			}
-		}
-		
-		if (bowStack != null) {
-			ArrowNockEvent event = new ArrowNockEvent(player, bowStack);
-			MinecraftForge.EVENT_BUS.post(event);
-			if (event.isCanceled()) {
-				return event.result;
-			}
-			
-			if (player.capabilities.isCreativeMode || player.inventory.hasItem(Items.arrow)) {
-				int j = 72000;
-				ArrowLooseEvent event2 = new ArrowLooseEvent(player, bowStack, j);
-				MinecraftForge.EVENT_BUS.post(event2);
-				if (event2.isCanceled()) {
-					return multiStack;
-				}
-				j = event2.charge;
-				
-				boolean flag = player.capabilities.isCreativeMode
-						|| EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId,
-								bowStack) > 0;
-				
-				if (flag || player.inventory.hasItem(Items.arrow)) {
-					float f = (float) j / 20.0F;
-					f = (f * f + f * 2.0F) / 3.0F;
-					
-					if ((double) f < 0.1D) {
-						return multiStack;
-					}
-					
-					if (f > 1.0F) {
-						f = 1.0F;
-					}
-					
-					EntityArrow entityarrow = new EntityArrow(world, player, f * 2.0F);
-					
-					if (f == 1.0F) {
-						entityarrow.setIsCritical(true);
-					}
-					
-					int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId,
-							bowStack);
-					
-					if (k > 0) {
-						entityarrow.setDamage(entityarrow.getDamage() + (double) k * 0.5D + 0.5D);
-					}
-					
-					int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId,
-							bowStack);
-					
-					if (l > 0) {
-						entityarrow.setKnockbackStrength(l);
-					}
-					
-					if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, bowStack) > 0) {
-						entityarrow.setFire(100);
-					}
-					
-					bowStack.damageItem(1, player);
-					world.playSoundAtEntity(player, "random.bow", 1.0F,
-							1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-					
-					if (flag) {
-						entityarrow.canBePickedUp = 2;
-					}
-					else {
-						player.inventory.consumeInventoryItem(Items.arrow);
-					}
-					
-					if (!world.isRemote) {
-						world.spawnEntityInWorld(entityarrow);
-					}
-					
-					multiStack = ItemMultiItem.setStackInSlot(multiStack, slot, bowStack);
-				}
-			}
-		}
-		
-		return multiStack;
-	}
-	
 	@Override
 	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y,
 			int z, int blockSide, float xFloat, float yFloat, float zFloat) {
-		boolean takeStack = !Core.DEBUG;
-		
 		boolean used = false;
 		ItemStack multiStack = itemStack.copy();
 		if (!world.isRemote) {
 			Block block = world.getBlock(x, y, z);
 			
-			NBTTagCompound multiTagCom = ItemMultiItem.getMultiTagCompound(itemStack);
 			ItemStack usageStack = null;
 			
 			// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			// Uses water bucket. If not partitioned, set to empty bucket
+			// Uses lava bucket. If not partitioned, set to empty bucket
 			usageStack = new ItemStack(Items.lava_bucket);
 			if (ItemMultiItem.hasItemInflixed(multiStack, usageStack)) {
 				// AuxiliaryObjects.log.info("Using lava bucket");
@@ -1217,14 +1119,16 @@ public class ItemMultiItem extends ItemBase {
 		
 		ItemStack multiStack = itemStack.copy();
 		
-		ItemStack stackInSlot = ItemMultiItem.getTools(multiStack,
-				ItemMultiItem.toolClassFromBlock(block))[0];
+		ItemStack[] tools = ItemMultiItem.getTools(multiStack,
+				ItemMultiItem.toolClassFromBlock(block));
+		ItemStack stackInSlot = tools.length > 0 ? tools[0] : null;
 		if (stackInSlot != null) {
 			ItemStack stackInSlot1 = stackInSlot.copy();
 			used = used
 					|| stackInSlot1.getItem().onBlockDestroyed(stackInSlot1, world, block, x, y, z,
 							thisEntity);
-			if (takeStack) {
+			if (takeStack &&
+					ItemMultiItem.getPartition(multiStack) != EnumPartition.DURABILTY) {
 				multiStack = ItemMultiItem.setStackInSlot(multiStack,
 						ItemMultiItem.getSlotOfStack(multiStack, stackInSlot), stackInSlot1);
 			}

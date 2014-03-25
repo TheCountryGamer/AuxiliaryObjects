@@ -22,6 +22,7 @@ public class Reference {
 	public static int guiColorizer = 2;
 	public static int guiInflixer = 3;
 	public static int guiPlayerChecker = 4;
+	public static int guiCompressor = 5;
 	
 	public static final ResourceLocation endShardTex = new ResourceLocation(MOD_ID,
 			"textures/blocks/Ender Shard_model.png");
