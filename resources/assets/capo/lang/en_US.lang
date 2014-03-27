@@ -1,0 +1,28 @@
+tile.Ender Shard.name=Ender Shard
+tile.Player Checker.name=Player Checker
+tile.Inflixer.name=Inflixer
+tile.Colorizer.name=Colorizer
+
+tile.Teleporter.name=Teleporter Base
+item.UnStable Core.name=UnStable Core
+item.Stable Core.name=Stable Core
+
+tile.MPE.name=Multi-Pipe (Energy)
+tile.MPI.name=Multi-Pipe (Item)
+tile.MPL.name=Multi-Pipe (Liquid)
+
+item.Player's Sack.name=Player's Sack
+item.MultiItem.name=Multi-Item
+item.MultiDye.name=Multi-Dye
+
+item.Talisman.name=Talisman
+item.Charm of Health.Charm of Health.name=Charm of Health
+item.Charm of Health.Charm of Hunger.name=Charm of Hunger
+item.Charm of Health.Charm of Speed.name=Charm of Speed
+item.Charm of Health.Charm of Jumping.name=Charm of Jumping
+item.Charm of Health.Charm of Regeneration.name=Charm of Regeneration
+item.Charm of Health.Charm of Heat.name=Charm of Heat
+item.Charm of Health.Charm of Gills.name=Charm of Gills
+item.Charm of Health.Charm of Invisibility.name=Charm of Invisibility
+item.Charm of Health.Charm of Night Vision.name=Charm of Night Vision
+
