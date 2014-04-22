@@ -223,8 +223,6 @@ public class ItemMultiItem extends ItemBase {
 	
 	public static int getSlotOfStack(ItemStack sourceStack, ItemStack stackInSlot) {
 		int slot = -1;
-		NBTTagCompound multiTagCom = ItemMultiItem.getMultiTagCompound(sourceStack);
-		
 		for (int i = 1; i <= ItemMultiItem.maxItemNum; i++) {
 			ItemStack slotStack = ItemMultiItem.getStackInSlot(sourceStack, i);
 			if (ItemStack.areItemStacksEqual(slotStack, stackInSlot)
@@ -326,7 +324,6 @@ public class ItemMultiItem extends ItemBase {
 	 * @return
 	 */
 	public static boolean hasItemInflixed(ItemStack sourceStack, ItemStack inflixStack) {
-		NBTTagCompound multiTagCom = ItemMultiItem.getMultiTagCompound(sourceStack);
 		for (int i = 1; i <= ItemMultiItem.maxItemNum; i++) {
 			ItemStack stackInSlot = ItemMultiItem.getStackInSlot(sourceStack, i);
 			if (stackInSlot != null) {
@@ -353,7 +350,6 @@ public class ItemMultiItem extends ItemBase {
 	}
 	
 	public static boolean hasPotionItemStack(ItemStack sourceStack) {
-		NBTTagCompound multiTagCom = ItemMultiItem.getMultiTagCompound(sourceStack);
 		for (int i = 1; i <= ItemMultiItem.maxItemNum; i++) {
 			ItemStack stackInSlot = ItemMultiItem.getStackInSlot(sourceStack, i);
 			if (stackInSlot != null && stackInSlot.getItem() == Items.potionitem) return true;
@@ -363,7 +359,6 @@ public class ItemMultiItem extends ItemBase {
 	
 	public static ItemStack[] getPotionItemStacks(ItemStack sourceStack) {
 		List<ItemStack> stacks = new ArrayList<ItemStack>();
-		NBTTagCompound multiTagCom = ItemMultiItem.getMultiTagCompound(sourceStack);
 		for (int i = 1; i <= ItemMultiItem.maxItemNum; i++) {
 			ItemStack stackInSlot = ItemMultiItem.getStackInSlot(sourceStack, i);
 			if (stackInSlot != null && stackInSlot.getItem() == Items.potionitem)
@@ -407,7 +402,7 @@ public class ItemMultiItem extends ItemBase {
 			if (slot > 0) {
 				newSource = ItemMultiItem.setStackInSlot(newSource, slot, inflixStack);
 				if (inflixStack.getItem() instanceof ItemSword) {
-					Item multiItem = (ItemMultiItem) sourceStack.getItem();
+					//Item multiItem = (ItemMultiItem) sourceStack.getItem();
 				}
 			}
 		}
@@ -565,7 +560,6 @@ public class ItemMultiItem extends ItemBase {
 		String toolClass = ItemMultiItem.toolClassFromBlock(block);
 		
 		ItemStack[] tools = ItemMultiItem.getTools(stack, toolClass);
-		NBTTagCompound multiTagCom = ItemMultiItem.getMultiTagCompound(stack);
 		if (tools != null && tools.length > 0 && tools[0] != null)
 			return ToolMaterial.valueOf(((ItemTool) tools[0].getItem()).getToolMaterialName())
 					.getEfficiencyOnProperMaterial();
@@ -592,7 +586,6 @@ public class ItemMultiItem extends ItemBase {
 	@Override
 	public boolean isValidArmor(ItemStack itemStack, int armorType, Entity entity) {
 		// return true if contains a piece of armor
-		NBTTagCompound multiTagCom = ItemMultiItem.getMultiTagCompound(itemStack);
 		boolean hasArmor = false;
 		for (int i = 1; i <= ItemMultiItem.maxItemNum; i++) {
 			ItemStack stackInSlot = ItemMultiItem.getStackInSlot(itemStack, i);
@@ -628,7 +621,6 @@ public class ItemMultiItem extends ItemBase {
 	@Override
 	public boolean isItemTool(ItemStack itemStack) {
 		// return true if contains a tool
-		NBTTagCompound multiTagCom = ItemMultiItem.getMultiTagCompound(itemStack);
 		boolean hasTool = false;
 		for (int i = 1; i <= ItemMultiItem.maxItemNum; i++) {
 			ItemStack stackInSlot = ItemMultiItem.getStackInSlot(itemStack, i);
@@ -647,7 +639,6 @@ public class ItemMultiItem extends ItemBase {
 		ItemStack multiStack = stack.copy();
 		
 		ItemStack swordStack = null;
-		NBTTagCompound multiTagCom = ItemMultiItem.getMultiTagCompound(multiStack);
 		for (int i = 0; i <= ItemMultiItem.maxItemNum; i++) {
 			ItemStack stackInSlot = ItemMultiItem.getStackInSlot(multiStack, i);
 			if (stackInSlot != null && stackInSlot.getItem() instanceof ItemSword) {
@@ -658,8 +649,8 @@ public class ItemMultiItem extends ItemBase {
 		
 		if (swordStack != null) {
 			ItemStack swordCopy = swordStack.copy();
-			float damage = (float) player.getEntityAttribute(SharedMonsterAttributes.attackDamage)
-					.getAttributeValue();
+			//float damage = (float) player.getEntityAttribute(SharedMonsterAttributes.attackDamage)
+			//		.getAttributeValue();
 			// this is the default sword value
 			// wood = 4
 			// stone = 5

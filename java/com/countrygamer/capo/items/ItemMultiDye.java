@@ -71,6 +71,9 @@ public class ItemMultiDye extends ItemBase {
 		return itemStack;
 	}
 	
+	@SuppressWarnings({
+			"unchecked", "unused"
+	})
 	private int cycleThroughColors(int currentColor, LinkedHashMap<String, Integer> colors) {
 		String[] colorNames = new String[colors.entrySet().size()];
 		int index = 0;

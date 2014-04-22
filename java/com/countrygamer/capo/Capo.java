@@ -31,9 +31,13 @@ import com.countrygamer.capo.blocks.BlockEnderShard;
 import com.countrygamer.capo.blocks.BlockInflixer;
 import com.countrygamer.capo.blocks.BlockIotaTable;
 import com.countrygamer.capo.blocks.BlockMineralExtractor;
+import com.countrygamer.capo.blocks.BlockModuleAssembler;
+import com.countrygamer.capo.blocks.BlockModuleBase;
 import com.countrygamer.capo.blocks.BlockMultiPipe;
 import com.countrygamer.capo.blocks.BlockPlayerChecker;
 import com.countrygamer.capo.blocks.BlockTeleBase;
+import com.countrygamer.capo.blocks.BlockWall;
+import com.countrygamer.capo.blocks.tiles.TileEntityAssembler;
 import com.countrygamer.capo.blocks.tiles.TileEntityColorizer;
 import com.countrygamer.capo.blocks.tiles.TileEntityColorizerII;
 import com.countrygamer.capo.blocks.tiles.TileEntityCompressor;
@@ -41,23 +45,32 @@ import com.countrygamer.capo.blocks.tiles.TileEntityEnderShard;
 import com.countrygamer.capo.blocks.tiles.TileEntityExtractor;
 import com.countrygamer.capo.blocks.tiles.TileEntityInflixer;
 import com.countrygamer.capo.blocks.tiles.TileEntityIotaTable;
+import com.countrygamer.capo.blocks.tiles.TileEntityModuleBase;
 import com.countrygamer.capo.blocks.tiles.TileEntityMultiPipe;
 import com.countrygamer.capo.blocks.tiles.TileEntityPlayerChecker;
 import com.countrygamer.capo.blocks.tiles.TileEntityTele;
+import com.countrygamer.capo.blocks.tiles.TileEntityWall;
+import com.countrygamer.capo.client.gui.GuiAssembler;
+import com.countrygamer.capo.client.gui.GuiAssemblerSettings;
 import com.countrygamer.capo.client.gui.GuiColorizer;
 import com.countrygamer.capo.client.gui.GuiColorizerII;
 import com.countrygamer.capo.client.gui.GuiCompressor;
 import com.countrygamer.capo.client.gui.GuiInflixer;
 import com.countrygamer.capo.client.gui.GuiInventorySack;
+import com.countrygamer.capo.client.gui.GuiModuleBase;
 import com.countrygamer.capo.client.gui.GuiPlayerChecker;
+import com.countrygamer.capo.inventory.ContainerAssembler;
+import com.countrygamer.capo.inventory.ContainerAssemblerSettings;
 import com.countrygamer.capo.inventory.ContainerColorizer;
 import com.countrygamer.capo.inventory.ContainerColorizerII;
 import com.countrygamer.capo.inventory.ContainerCompressor;
 import com.countrygamer.capo.inventory.ContainerInflixer;
 import com.countrygamer.capo.inventory.ContainerInventorySack;
+import com.countrygamer.capo.inventory.ContainerModuleBase;
 import com.countrygamer.capo.inventory.InventorySack;
 import com.countrygamer.capo.items.ItemCharm;
 import com.countrygamer.capo.items.ItemInventorySack;
+import com.countrygamer.capo.items.ItemModuleWall;
 import com.countrygamer.capo.items.ItemMultiDye;
 import com.countrygamer.capo.items.ItemMultiItem;
 import com.countrygamer.capo.items.ItemTeleCore;
@@ -66,10 +79,12 @@ import com.countrygamer.capo.items.ItemVainer;
 import com.countrygamer.capo.lib.EnumPartition;
 import com.countrygamer.capo.lib.Reference;
 import com.countrygamer.capo.packet.PacketCompressorMode;
+import com.countrygamer.capo.packet.PacketOpenAssemblerSettings;
 import com.countrygamer.capo.packet.PacketSackName;
 import com.countrygamer.capo.packet.PacketSaveDyeColor;
 import com.countrygamer.capo.packet.PacketStorePlayerNames;
 import com.countrygamer.capo.packet.PacketSubColorsTE;
+import com.countrygamer.capo.packet.PacketTriggerAssembler;
 import com.countrygamer.capo.packet.PacketTriggerColorizerII;
 import com.countrygamer.capo.packet.PacketTriggerInflixer;
 import com.countrygamer.capo.proxy.ServerProxy;
@@ -125,14 +140,15 @@ public class Capo implements IFuelHandler, IGuiHandler {
 	};
 	
 	public static Item vainer;
+	
+	public static Item moduleSentry;
+	public static Item moduleWall;
+	
 	// ~Blocks~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	public static Block endShard;
 	
 	public static Block playerChecker;
 	public static Block entityDetector;
-	
-	// will hold the inventory in a tile ent
-	public static Block inventoryHolder;
 	
 	public static Block inflixer;
 	public static Block colorizer;
@@ -149,6 +165,11 @@ public class Capo implements IFuelHandler, IGuiHandler {
 	
 	public static Block mineralExtractor;
 	public static Block compressor;
+	
+	public static Block moduleBase;
+	public static Block wallBlock;
+	
+	public static Block moduleAssembler;
 	
 	// Mod
 	// Compatibility~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -236,6 +257,11 @@ public class Capo implements IFuelHandler, IGuiHandler {
 		Capo.tridye = new ItemTriDye(Reference.MOD_ID, "Tri-Dye");
 		Core.addItemToTab(Capo.tridye);
 		
+		// Capo.moduleSentry;
+		
+		Capo.moduleWall = new ItemModuleWall(Reference.MOD_ID, "Module Wall");
+		Core.addItemToTab(Capo.moduleWall);
+		
 	}
 	
 	public void registerArmor() {
@@ -301,6 +327,20 @@ public class Capo implements IFuelHandler, IGuiHandler {
 				TileEntityCompressor.class);
 		Capo.compressor.setHardness(0.8F).setResistance(0.5F);
 		Core.addBlockToTab(Capo.compressor);
+		
+		TileEntity.addMapping(TileEntityModuleBase.class, Reference.MOD_ID + "_ModuleBase");
+		Capo.moduleBase = new BlockModuleBase(Material.ground, Reference.MOD_ID, "Module Base",
+				TileEntityModuleBase.class);
+		Core.addBlockToTab(Capo.moduleBase);
+		
+		TileEntity.addMapping(TileEntityWall.class, Reference.MOD_ID + "_Wall");
+		Capo.wallBlock = new BlockWall(Material.ground, Reference.MOD_ID, "Wall",
+				TileEntityWall.class);
+		
+		TileEntity.addMapping(TileEntityAssembler.class, Reference.MOD_ID + "_ModuleAssembler");
+		Capo.moduleAssembler = new BlockModuleAssembler(Material.ground, Reference.MOD_ID,
+				"Module Assembler", TileEntityAssembler.class);
+		Core.addBlockToTab(Capo.moduleAssembler);
 		
 	}
 	
@@ -402,6 +442,8 @@ public class Capo implements IFuelHandler, IGuiHandler {
 		Capo.packetChannel.registerPacket(PacketTriggerInflixer.class);
 		Capo.packetChannel.registerPacket(PacketCompressorMode.class);
 		Capo.packetChannel.registerPacket(PacketTriggerColorizerII.class);
+		Capo.packetChannel.registerPacket(PacketTriggerAssembler.class);
+		Capo.packetChannel.registerPacket(PacketOpenAssemblerSettings.class);
 		
 		this.Cofh_ThermalExpansion();
 		
@@ -512,12 +554,21 @@ public class Capo implements IFuelHandler, IGuiHandler {
 		else if (tileEnt instanceof TileEntityCompressor && ID == Reference.guiCompressor) {
 			return new ContainerCompressor(player.inventory, (TileEntityCompressor) tileEnt);
 		}
+		else if (tileEnt instanceof TileEntityAssembler && ID == Reference.guiAssembler) {
+			return new ContainerAssembler(player.inventory, (TileEntityAssembler) tileEnt);
+		}
+		else if (tileEnt instanceof TileEntityAssembler && ID == Reference.guiAssemblerSettings) {
+			return new ContainerAssemblerSettings(player.inventory, (TileEntityAssembler)tileEnt);
+		}
 		else if (ID == Reference.guiInvSack) {
 			return new ContainerInventorySack(player, player.inventory, new InventorySack(
 					player.getHeldItem()));
 		}
 		else if (tileEnt instanceof TileEntityColorizerII && ID == Reference.guiColorizerII) {
 			return new ContainerColorizerII(player.inventory, (TileEntityColorizerII) tileEnt);
+		}
+		else if (tileEnt instanceof TileEntityModuleBase && ID == Reference.guiModuleBase) {
+			return new ContainerModuleBase(player.inventory, (TileEntityModuleBase) tileEnt);
 		}
 		return null;
 	}
@@ -537,12 +588,22 @@ public class Capo implements IFuelHandler, IGuiHandler {
 		else if (tileEnt instanceof TileEntityCompressor && ID == Reference.guiCompressor) {
 			return new GuiCompressor(player, (TileEntityCompressor) tileEnt);
 		}
+		else if (tileEnt instanceof TileEntityAssembler && ID == Reference.guiAssembler) {
+			return new GuiAssembler(player, (TileEntityAssembler) tileEnt);
+		}
+		else if (tileEnt instanceof TileEntityAssembler && ID == Reference.guiAssemblerSettings) {
+			return new GuiAssemblerSettings(player, new ContainerAssemblerSettings(
+					player.inventory, (TileEntityAssembler)tileEnt));
+		}
 		else if (ID == Reference.guiInvSack) {
 			return new GuiInventorySack(player, player.inventory, new InventorySack(
 					player.getHeldItem()));
 		}
 		else if (tileEnt instanceof TileEntityColorizerII && ID == Reference.guiColorizerII) {
 			return new GuiColorizerII(player, (TileEntityColorizerII) tileEnt);
+		}
+		else if (tileEnt instanceof TileEntityModuleBase && ID == Reference.guiModuleBase) {
+			return new GuiModuleBase(player, (TileEntityModuleBase) tileEnt);
 		}
 		return null;
 	}

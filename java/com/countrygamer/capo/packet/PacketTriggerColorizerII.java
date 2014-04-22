@@ -13,6 +13,7 @@ import com.countrygamer.capo.blocks.tiles.TileEntityColorizerII;
 import com.countrygamer.core.Base.packet.AbstractPacket;
 import com.countrygamer.core.lib.LogBlock;
 
+
 public class PacketTriggerColorizerII extends AbstractPacket {
 	
 	public static List<String> actionFromString = Arrays.asList((new String[] {
@@ -55,8 +56,10 @@ public class PacketTriggerColorizerII extends AbstractPacket {
 		buffer.writeInt(this.z);
 		buffer.writeInt(this.action);
 		buffer.writeInt(this.hexColors.length);
-		for (int i = 0; i < this.hexColors.length; i++) {
-			buffer.writeInt(this.hexColors[i]);
+		if (this.hexColors.length > 0) {
+			for (int i = 0; i < this.hexColors.length; i++) {
+				buffer.writeInt(this.hexColors[i]);
+			}
 		}
 		
 	}
@@ -68,9 +71,11 @@ public class PacketTriggerColorizerII extends AbstractPacket {
 		this.z = buffer.readInt();
 		this.action = buffer.readInt();
 		int length = buffer.readInt();
-		this.hexColors = new int[length];
-		for (int i = 0; i < length; i++) {
-			this.hexColors[i] = buffer.readInt();
+		if (length > 0) {
+			this.hexColors = new int[length];
+			for (int i = 0; i < length; i++) {
+				this.hexColors[i] = buffer.readInt();
+			}
 		}
 		
 	}
@@ -86,6 +91,7 @@ public class PacketTriggerColorizerII extends AbstractPacket {
 	}
 	
 	private void action(EntityPlayer player) {
+		Capo.log.info("Recieved general packet message");
 		TileEntityColorizerII tileEnt = (TileEntityColorizerII) player.worldObj.getTileEntity(
 				this.x, this.y, this.z);
 		if (this.action == actionFromString.indexOf("saveColor")) {
@@ -106,7 +112,9 @@ public class PacketTriggerColorizerII extends AbstractPacket {
 					tileEnt.setHexColor(i, this.hexColors[i]);
 				}
 		}
-		else if (this.action == actionFromString.indexOf("setTriColors")) {
+		
+		if (this.action == actionFromString.indexOf("setTriColors")) {
+			Capo.log.info("Got setTriColors message and triggering");
 			tileEnt.setHexValuesToTriDye();
 		}
 		

@@ -1,7 +1,11 @@
 package com.countrygamer.capo.blocks.tiles;
 
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
+import com.countrygamer.capo.Capo;
+import com.countrygamer.capo.items.ItemMultiDye;
+import com.countrygamer.capo.items.ItemTriDye;
 import com.countrygamer.core.Base.block.tiles.TileEntityInventoryBase;
 
 public class TileEntityColorizerII extends TileEntityInventoryBase {
@@ -23,7 +27,21 @@ public class TileEntityColorizerII extends TileEntityInventoryBase {
 	}
 	
 	public void setHexValuesToTriDye() {
-		// TODO
+		Capo.log.info("Got packet message");
+		ItemStack triDyeStack = this.getStackInSlot(1);
+		if (triDyeStack != null) {
+			Capo.log.info("Setting the things");
+			NBTTagCompound tagCom = triDyeStack.hasTagCompound() ? triDyeStack.getTagCompound()
+					: ((ItemTriDye) triDyeStack.getItem()).createNewTagCom();
+			for (int i = 0; i < this.hexColors.length; i++) {
+				// each colors holds the literal integer color value
+				// To get the hex value, you must use Integer.toHexString(int)
+				int color = this.hexColors[i];
+				tagCom.setInteger(ItemMultiDye.colorTagStr + i, color);
+			}
+			triDyeStack.setTagCompound(tagCom);
+		}
+		
 	}
 	
 	@Override
@@ -48,7 +66,5 @@ public class TileEntityColorizerII extends TileEntityInventoryBase {
 		}
 		
 	}
-	
-	
 	
 }

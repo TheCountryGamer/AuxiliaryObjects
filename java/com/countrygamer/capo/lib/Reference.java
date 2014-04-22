@@ -17,13 +17,16 @@ public class Reference {
 	public static final String CLIENT_PROXY_CLASS = "com.countrygamer." + MOD_ID
 			+ ".proxy.ClientProxy";
 	
-	public static int guiInvSack = 0;
-	public static int guiInvSackRename = 1;
-	public static int guiColorizer = 2;
-	public static int guiInflixer = 3;
-	public static int guiPlayerChecker = 4;
-	public static int guiCompressor = 5;
-	public static int guiColorizerII = 6;
+	public static final int guiInvSack = 0;
+	public static final int guiInvSackRename = 1;
+	public static final int guiColorizer = 2;
+	public static final int guiInflixer = 3;
+	public static final int guiPlayerChecker = 4;
+	public static final int guiCompressor = 5;
+	public static final int guiColorizerII = 6;
+	public static final int guiModuleBase = 7;
+	public static final int guiAssembler = 8;
+	public static final int guiAssemblerSettings = 9;
 	
 	public static final ResourceLocation endShardTex = new ResourceLocation(MOD_ID,
 			"textures/blocks/Ender Shard_model.png");

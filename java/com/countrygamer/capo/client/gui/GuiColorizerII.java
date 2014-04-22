@@ -15,7 +15,6 @@ import com.countrygamer.capo.packet.PacketTriggerColorizerII;
 import com.countrygamer.core.Base.block.tiles.TileEntityInventoryBase;
 import com.countrygamer.core.Base.client.gui.GuiContainerBlockBase;
 import com.countrygamer.core.lib.HexStringConverter;
-import com.countrygamer.core.lib.LogBlock;
 
 public class GuiColorizerII extends GuiContainerBlockBase {
 	
@@ -80,7 +79,7 @@ public class GuiColorizerII extends GuiContainerBlockBase {
 					log.addWithLine("");
 				}
 				log.log();
-				*/
+				 */
 				PacketTriggerColorizerII packet = new PacketTriggerColorizerII(this.tileEnt.xCoord,
 						this.tileEnt.yCoord, this.tileEnt.zCoord, "saveColor", colors);
 				Capo.packetChannel.sendToServer(packet);
@@ -88,7 +87,11 @@ public class GuiColorizerII extends GuiContainerBlockBase {
 			}
 		}
 		else if (id == this.setTriColors.id) {
-			
+			Capo.log.info("SetTriColors hit, sending packet");
+			PacketTriggerColorizerII packet = new PacketTriggerColorizerII(this.tileEnt.xCoord,
+					this.tileEnt.yCoord, this.tileEnt.zCoord, "setTriColors");
+			Capo.packetChannel.sendToServer(packet);
+			Capo.packetChannel.sendToAll(packet);
 		}
 	}
 	

@@ -19,6 +19,7 @@ public class ItemCharm extends ItemMetadataBase {
 	/**
 	 * Holds the names of the different charms
 	 */
+	@SuppressWarnings("unused")
 	private final ArrayList<String>	typeNames;
 	
 	public ItemCharm(String modid, String[] names) {
