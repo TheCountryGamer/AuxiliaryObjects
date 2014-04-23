@@ -4,13 +4,13 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
-import com.countrygamer.capo.Capo;
-import com.countrygamer.capo.inventory.ContainerAssembler;
-import com.countrygamer.capo.lib.Reference;
-import com.countrygamer.capo.packet.PacketOpenAssemblerSettings;
-import com.countrygamer.capo.packet.PacketTriggerAssembler;
-import com.countrygamer.core.Base.block.tiles.TileEntityInventoryBase;
+import com.countrygamer.capo.common.Capo;
+import com.countrygamer.capo.common.inventory.container.ContainerAssembler;
+import com.countrygamer.capo.common.lib.Reference;
+import com.countrygamer.capo.common.packet.PacketOpenAssemblerSettings;
+import com.countrygamer.capo.common.packet.PacketTriggerAssembler;
 import com.countrygamer.core.Base.client.gui.GuiContainerBlockBase;
+import com.countrygamer.core.Base.common.tileentity.TileEntityInventoryBase;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

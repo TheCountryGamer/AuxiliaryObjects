@@ -4,11 +4,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
-import com.countrygamer.capo.blocks.tiles.TileEntityAssembler;
-import com.countrygamer.capo.lib.Reference;
-import com.countrygamer.core.Base.block.tiles.TileEntityInventoryBase;
+import com.countrygamer.capo.common.lib.Reference;
+import com.countrygamer.capo.common.tileentity.TileEntityAssembler;
 import com.countrygamer.core.Base.client.gui.GuiContainerBlockBase;
-import com.countrygamer.core.Base.inventory.ContainerBlockBase;
+import com.countrygamer.core.Base.common.inventory.ContainerBlockBase;
+import com.countrygamer.core.Base.common.tileentity.TileEntityInventoryBase;
 
 public class GuiAssemblerSettings extends GuiContainerBlockBase {
 	

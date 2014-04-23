@@ -3,11 +3,11 @@ package com.countrygamer.capo.client.gui;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
-import com.countrygamer.capo.Capo;
-import com.countrygamer.capo.blocks.tiles.TileEntityCompressor;
-import com.countrygamer.capo.inventory.ContainerCompressor;
-import com.countrygamer.capo.lib.Reference;
-import com.countrygamer.capo.packet.PacketCompressorMode;
+import com.countrygamer.capo.common.Capo;
+import com.countrygamer.capo.common.inventory.container.ContainerCompressor;
+import com.countrygamer.capo.common.lib.Reference;
+import com.countrygamer.capo.common.packet.PacketCompressorMode;
+import com.countrygamer.capo.common.tileentity.TileEntityCompressor;
 import com.countrygamer.core.Base.client.gui.GuiButtonArrow;
 import com.countrygamer.core.Base.client.gui.GuiButtonArrow.ButtonType;
 import com.countrygamer.core.Base.client.gui.GuiContainerBlockBase;

@@ -12,13 +12,13 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.capo.Capo;
-import com.countrygamer.capo.blocks.tiles.TileEntityIotaTable;
 import com.countrygamer.capo.client.model.ModelIotaTable;
-import com.countrygamer.capo.lib.Reference;
+import com.countrygamer.capo.common.Capo;
+import com.countrygamer.capo.common.lib.Reference;
+import com.countrygamer.capo.common.tileentity.TileEntityIotaTable;
 import com.countrygamer.core.Base.client.ModelBase;
 import com.countrygamer.core.Base.client.Render.TileEntityRendererBase;
-import com.countrygamer.core.lib.CoreUtilRender;
+import com.countrygamer.core.common.lib.CoreUtilRender;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

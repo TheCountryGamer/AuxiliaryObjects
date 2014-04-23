@@ -7,13 +7,13 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.capo.Capo;
-import com.countrygamer.capo.blocks.tiles.TileEntityInflixer;
-import com.countrygamer.capo.inventory.ContainerInflixer;
-import com.countrygamer.capo.items.ItemMultiItem;
-import com.countrygamer.capo.lib.EnumPartition;
-import com.countrygamer.capo.lib.Reference;
-import com.countrygamer.capo.packet.PacketTriggerInflixer;
+import com.countrygamer.capo.common.Capo;
+import com.countrygamer.capo.common.inventory.container.ContainerInflixer;
+import com.countrygamer.capo.common.item.ItemMultiItem;
+import com.countrygamer.capo.common.lib.EnumPartition;
+import com.countrygamer.capo.common.lib.Reference;
+import com.countrygamer.capo.common.packet.PacketTriggerInflixer;
+import com.countrygamer.capo.common.tileentity.TileEntityInflixer;
 import com.countrygamer.core.Base.client.gui.GuiButtonArrow;
 import com.countrygamer.core.Base.client.gui.GuiContainerBlockBase;
 

@@ -2,9 +2,9 @@ package com.countrygamer.capo.client.gui;
 
 import net.minecraft.entity.player.EntityPlayer;
 
-import com.countrygamer.capo.inventory.ContainerModuleBase;
-import com.countrygamer.core.Base.block.tiles.TileEntityInventoryBase;
+import com.countrygamer.capo.common.inventory.container.ContainerModuleBase;
 import com.countrygamer.core.Base.client.gui.GuiContainerBlockBase;
+import com.countrygamer.core.Base.common.tileentity.TileEntityInventoryBase;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

@@ -7,14 +7,14 @@ import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
-import com.countrygamer.capo.Capo;
-import com.countrygamer.capo.blocks.tiles.TileEntityColorizerII;
-import com.countrygamer.capo.inventory.ContainerColorizerII;
-import com.countrygamer.capo.lib.Reference;
-import com.countrygamer.capo.packet.PacketTriggerColorizerII;
-import com.countrygamer.core.Base.block.tiles.TileEntityInventoryBase;
+import com.countrygamer.capo.common.Capo;
+import com.countrygamer.capo.common.inventory.container.ContainerColorizerII;
+import com.countrygamer.capo.common.lib.Reference;
+import com.countrygamer.capo.common.packet.PacketTriggerColorizerII;
+import com.countrygamer.capo.common.tileentity.TileEntityColorizerII;
 import com.countrygamer.core.Base.client.gui.GuiContainerBlockBase;
-import com.countrygamer.core.lib.HexStringConverter;
+import com.countrygamer.core.Base.common.tileentity.TileEntityInventoryBase;
+import com.countrygamer.core.common.lib.HexStringConverter;
 
 public class GuiColorizerII extends GuiContainerBlockBase {
 	

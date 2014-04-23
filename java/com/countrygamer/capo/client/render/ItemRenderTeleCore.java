@@ -1,6 +1,8 @@
 package com.countrygamer.capo.client.render;
 
 import com.countrygamer.capo.client.model.ModelCore;
+import com.countrygamer.capo.common.lib.Reference;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
@@ -9,8 +11,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
-
-import com.countrygamer.capo.lib.Reference;
 
 public class ItemRenderTeleCore implements IItemRenderer {
 	

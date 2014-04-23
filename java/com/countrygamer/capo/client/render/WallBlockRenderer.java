@@ -7,9 +7,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
-import com.countrygamer.capo.Capo;
-import com.countrygamer.capo.blocks.BlockWall;
-import com.countrygamer.capo.blocks.tiles.TileEntityWall;
+import com.countrygamer.capo.common.Capo;
+import com.countrygamer.capo.common.block.BlockWall;
+import com.countrygamer.capo.common.tileentity.TileEntityWall;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.relauncher.Side;

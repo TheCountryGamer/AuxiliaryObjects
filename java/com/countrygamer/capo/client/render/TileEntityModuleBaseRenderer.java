@@ -13,12 +13,12 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.capo.blocks.tiles.TileEntityModuleBase;
 import com.countrygamer.capo.client.model.ModelModuleBase;
 import com.countrygamer.capo.client.model.ModelModuleLaser;
 import com.countrygamer.capo.client.model.ModelModuleWall;
-import com.countrygamer.capo.lib.LaserRotation;
-import com.countrygamer.capo.lib.Reference;
+import com.countrygamer.capo.common.lib.LaserRotation;
+import com.countrygamer.capo.common.lib.Reference;
+import com.countrygamer.capo.common.tileentity.TileEntityModuleBase;
 
 public class TileEntityModuleBaseRenderer extends TileEntitySpecialRenderer {
 	

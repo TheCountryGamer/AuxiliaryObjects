@@ -8,13 +8,13 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 
-import com.countrygamer.capo.Capo;
-import com.countrygamer.capo.inventory.ContainerInventorySack;
-import com.countrygamer.capo.items.ItemInventorySack;
-import com.countrygamer.capo.lib.Reference;
-import com.countrygamer.capo.packet.PacketSackName;
+import com.countrygamer.capo.common.Capo;
+import com.countrygamer.capo.common.inventory.container.ContainerInventorySack;
+import com.countrygamer.capo.common.item.ItemInventorySack;
+import com.countrygamer.capo.common.lib.Reference;
+import com.countrygamer.capo.common.packet.PacketSackName;
 import com.countrygamer.core.Base.client.gui.GuiContainerItemBase;
-import com.countrygamer.core.Base.inventory.InventoryItemBase;
+import com.countrygamer.core.Base.common.inventory.InventoryItemBase;
 
 public class GuiInventorySack extends GuiContainerItemBase {
 	

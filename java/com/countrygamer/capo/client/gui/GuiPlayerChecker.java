@@ -17,12 +17,12 @@ import org.apache.logging.log4j.LogManager;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.capo.Capo;
-import com.countrygamer.capo.blocks.tiles.TileEntityPlayerChecker;
-import com.countrygamer.capo.packet.PacketStorePlayerNames;
+import com.countrygamer.capo.common.Capo;
+import com.countrygamer.capo.common.packet.PacketStorePlayerNames;
+import com.countrygamer.capo.common.tileentity.TileEntityPlayerChecker;
 import com.countrygamer.core.Base.client.gui.GuiButtonCheck;
 import com.countrygamer.core.Base.client.gui.GuiScreenBlockBase;
-import com.countrygamer.core.lib.CoreReference;
+import com.countrygamer.core.common.lib.CoreReference;
 
 public class GuiPlayerChecker extends GuiScreenBlockBase {
 	

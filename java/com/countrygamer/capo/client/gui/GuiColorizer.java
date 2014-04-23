@@ -14,15 +14,15 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.capo.Capo;
-import com.countrygamer.capo.blocks.tiles.TileEntityColorizer;
-import com.countrygamer.capo.inventory.ContainerColorizer;
-import com.countrygamer.capo.items.ItemMultiDye;
-import com.countrygamer.capo.lib.Reference;
-import com.countrygamer.capo.packet.PacketSaveDyeColor;
-import com.countrygamer.capo.packet.PacketSubColorsTE;
+import com.countrygamer.capo.common.Capo;
+import com.countrygamer.capo.common.inventory.container.ContainerColorizer;
+import com.countrygamer.capo.common.item.ItemMultiDye;
+import com.countrygamer.capo.common.lib.Reference;
+import com.countrygamer.capo.common.packet.PacketSaveDyeColor;
+import com.countrygamer.capo.common.packet.PacketSubColorsTE;
+import com.countrygamer.capo.common.tileentity.TileEntityColorizer;
 import com.countrygamer.core.Base.client.gui.GuiContainerBlockBase;
-import com.countrygamer.core.lib.CoreUtilHex;
+import com.countrygamer.core.common.lib.CoreUtilHex;
 
 public class GuiColorizer extends GuiContainerBlockBase {
 	

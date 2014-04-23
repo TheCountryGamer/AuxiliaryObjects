@@ -5,9 +5,9 @@ import net.minecraft.entity.player.InventoryPlayer;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.capo.blocks.tiles.TileEntityIncubator;
-import com.countrygamer.capo.inventory.ContainerIncubator;
-import com.countrygamer.capo.lib.Reference;
+import com.countrygamer.capo.common.inventory.container.ContainerIncubator;
+import com.countrygamer.capo.common.lib.Reference;
+import com.countrygamer.capo.common.tileentity.TileEntityIncubator;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
