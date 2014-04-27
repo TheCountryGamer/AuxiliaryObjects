@@ -14,7 +14,7 @@ import com.countrygamer.core.Base.common.tileentity.TileEntityInventoryBase;
 
 public class ContainerAssemblerSettings extends ContainerBlockBase {
 	
-	FakeInventory fi;
+	public FakeInventory fi;
 	
 	public ContainerAssemblerSettings(InventoryPlayer invPlayer, TileEntityInventoryBase tileEnt) {
 		super(invPlayer, tileEnt);
@@ -31,12 +31,13 @@ public class ContainerAssemblerSettings extends ContainerBlockBase {
 	
 	public void registerSlots(InventoryPlayer invPlayer) {
 		if (fi != null) {
-			this.addSlotToContainer(new SlotModuleCamo(this.fi, 0, 10, 10));
+			this.addSlotToContainer(new SlotModuleCamo(this.fi, 0, 16, 120));
 		}
 		
-		this.registerPlayerSlots(invPlayer, 0, 0);
+		this.registerPlayerSlots(invPlayer, 82, 36);
 	}
 	
+	/*
 	public void onContainerClosed(EntityPlayer player) {
 		super.onContainerClosed(player);
 		
@@ -49,6 +50,7 @@ public class ContainerAssemblerSettings extends ContainerBlockBase {
 		}
 		
 	}
+	*/
 	
 	@Override
 	public ItemStack slotClick(int slotid, int mouseButton, int modifier, EntityPlayer player) {

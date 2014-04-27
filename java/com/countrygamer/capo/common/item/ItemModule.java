@@ -71,6 +71,9 @@ public class ItemModule extends ItemBase {
 		}
 	}
 	
+	@SuppressWarnings({
+			"rawtypes", "unchecked"
+	})
 	public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
 		NBTTagCompound tagCom = itemStack.hasTagCompound() ? itemStack.getTagCompound() : new NBTTagCompound();
 		NBTTagCompound itemTagCom = tagCom.getCompoundTag("TagCom" + this.name);

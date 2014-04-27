@@ -9,7 +9,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
@@ -351,16 +350,6 @@ public class GuiColorizer extends GuiContainerBlockBase {
 			}
 		}
 		
-	}
-	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	protected void renderHoverTip(List hoverInfo, int mouseX, int mouseY) {
-		for (int k = 0; k < hoverInfo.size(); ++k) {
-			hoverInfo.set(k, EnumChatFormatting.GRAY + (String) hoverInfo.get(k));
-		}
-		
-		this.func_146283_a(hoverInfo, mouseX, mouseY);
-		drawHoveringText(hoverInfo, mouseX, mouseY, this.fontRendererObj);
 	}
 	
 }

@@ -11,8 +11,8 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
 
-import com.countrygamer.capo.common.Capo;
 import com.countrygamer.core.Base.common.tileentity.TileEntityBase;
+import com.countrygamer.core.common.lib.RedstoneState;
 
 public class TileEntityPlayerChecker extends TileEntityBase {
 	
@@ -127,12 +127,31 @@ public class TileEntityPlayerChecker extends TileEntityBase {
 	}
 	
 	public int getRedstonePower() {
-		if (this.isActivePlayerOnline()) {
-			Capo.log.info("Powered");
-			return 15;
+		if (this.getRedstoneState() == null)
+			return 0;
+		else if (this.getRedstoneState() == RedstoneState.IGNORE)
+			return 0;
+		else if (this.getRedstoneState() == RedstoneState.LOW) {
+			if (this.isActivePlayerOnline())
+				return 0;
+			else
+				return 15;
 		}
-		Capo.log.info("Not powered");
+		else if (this.getRedstoneState() == RedstoneState.HIGH) {
+			if (this.isActivePlayerOnline())
+				return 15;
+			else
+				return 0;
+		}
 		return 0;
+	}
+	
+	public String[] getActivePlayers() {
+		String[] players = new String[this.activePlayerNames.size()];
+		for (int i = 0; i < this.activePlayerNames.size(); i++) {
+			players[i] = this.activePlayerNames.get(i);
+		}
+		return players;
 	}
 	
 }

@@ -3,9 +3,9 @@ package com.countrygamer.capo.common.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.particle.EffectRenderer;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
@@ -15,7 +15,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import com.countrygamer.capo.common.Capo;
 import com.countrygamer.capo.common.tileentity.TileEntityWall;
 import com.countrygamer.core.Base.common.block.BlockContainerBase;
 
@@ -24,6 +23,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockWall extends BlockContainerBase {
 	
+	private IIcon blankIcon;
+	
 	public BlockWall(Material mat, String modid, String name,
 			Class<? extends TileEntity> tileEntityClass) {
 		super(mat, modid, name, tileEntityClass);
@@ -31,13 +32,21 @@ public class BlockWall extends BlockContainerBase {
 	}
 	
 	@Override
-	public boolean isFlammable(IBlockAccess world, int x, int y, int z, ForgeDirection face) {
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister iconRegister) {
+		super.registerBlockIcons(iconRegister);
+		this.blankIcon = iconRegister.registerIcon(this.modid + ":blank");
+	}
+	
+	@Override
+	public boolean isFlammable(IBlockAccess world, int x, int y, int z,
+			ForgeDirection face) {
 		return false;
 	}
 	
 	@Override
-	public boolean canSilkHarvest(World world, EntityPlayer player, int x, int y, int z,
-			int metadata) {
+	public boolean canSilkHarvest(World world, EntityPlayer player, int x, int y,
+			int z, int metadata) {
 		return false;
 	}
 	
@@ -51,12 +60,14 @@ public class BlockWall extends BlockContainerBase {
 	}
 	
 	@Override
-	public boolean canEntityDestroy(IBlockAccess world, int x, int y, int z, Entity entity) {
+	public boolean canEntityDestroy(IBlockAccess world, int x, int y, int z,
+			Entity entity) {
 		return false;
 	}
 	
 	@Override
-	public void onFallenUpon(World world, int x, int y, int z, Entity entity, float unknown) {
+	public void onFallenUpon(World world, int x, int y, int z, Entity entity,
+			float unknown) {
 		
 	}
 	
@@ -130,7 +141,7 @@ public class BlockWall extends BlockContainerBase {
 		}
 		Capo.log.info("" + opacity);
 		return opacity;
-		*/
+		 */
 	}
 	
 	private Block getBlock(IBlockAccess world, int x, int y, int z) {
@@ -160,7 +171,8 @@ public class BlockWall extends BlockContainerBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
-		return this.blockIcon;
+		//Capo.log.info("Get Icon Call");
+		return this.blankIcon;
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -219,4 +231,10 @@ public class BlockWall extends BlockContainerBase {
 		return !this.particles;
 	}
 	
+	@Override
+	public boolean isSideSolid(IBlockAccess world, int x, int y, int z,
+			ForgeDirection side) {
+		return true;
+	}
+		
 }

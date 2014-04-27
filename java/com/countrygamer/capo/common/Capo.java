@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
@@ -57,6 +58,8 @@ import com.countrygamer.capo.common.inventory.container.ContainerInventorySack;
 import com.countrygamer.capo.common.inventory.container.ContainerModuleBase;
 import com.countrygamer.capo.common.item.ItemCharm;
 import com.countrygamer.capo.common.item.ItemInventorySack;
+import com.countrygamer.capo.common.item.ItemLuminizer;
+import com.countrygamer.capo.common.item.ItemModuleTool;
 import com.countrygamer.capo.common.item.ItemModuleWall;
 import com.countrygamer.capo.common.item.ItemMultiDye;
 import com.countrygamer.capo.common.item.ItemMultiItem;
@@ -69,6 +72,7 @@ import com.countrygamer.capo.common.packet.PacketCompressorMode;
 import com.countrygamer.capo.common.packet.PacketOpenAssemblerSettings;
 import com.countrygamer.capo.common.packet.PacketSackName;
 import com.countrygamer.capo.common.packet.PacketSaveDyeColor;
+import com.countrygamer.capo.common.packet.PacketSaveModuleSettings;
 import com.countrygamer.capo.common.packet.PacketStorePlayerNames;
 import com.countrygamer.capo.common.packet.PacketSubColorsTE;
 import com.countrygamer.capo.common.packet.PacketTriggerAssembler;
@@ -142,6 +146,10 @@ public class Capo implements IFuelHandler, IGuiHandler {
 	
 	public static Item moduleSentry;
 	public static Item moduleWall;
+	
+	public static Item moduleTool;
+	
+	public static Item luminizer;
 	
 	// ~Blocks~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	public static Block endShard;
@@ -260,6 +268,12 @@ public class Capo implements IFuelHandler, IGuiHandler {
 		
 		Capo.moduleWall = new ItemModuleWall(Reference.MOD_ID, "Module Wall");
 		Core.addItemToTab(Capo.moduleWall);
+		
+		Capo.moduleTool = new ItemModuleTool(Reference.MOD_ID, "Module Tool");
+		Core.addItemToTab(Capo.moduleTool);
+		
+		Capo.luminizer = new ItemLuminizer(Reference.MOD_ID, "Luminizer");
+		Core.addItemToTab(Capo.luminizer);
 		
 	}
 	
@@ -443,6 +457,7 @@ public class Capo implements IFuelHandler, IGuiHandler {
 		Capo.packetChannel.registerPacket(PacketTriggerColorizerII.class);
 		Capo.packetChannel.registerPacket(PacketTriggerAssembler.class);
 		Capo.packetChannel.registerPacket(PacketOpenAssemblerSettings.class);
+		Capo.packetChannel.registerPacket(PacketSaveModuleSettings.class);
 		
 		this.Cofh_ThermalExpansion();
 		
@@ -533,6 +548,13 @@ public class Capo implements IFuelHandler, IGuiHandler {
 	}
 	
 	// end taken
+	
+	@SubscribeEvent
+	public void enderTeleport(EnderTeleportEvent event) {
+		//EntityLivingBase entity = event.entityLiving;
+		
+	}
+	
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	// ~Fuel Handler~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	@Override

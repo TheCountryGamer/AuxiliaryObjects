@@ -2,13 +2,10 @@ package com.countrygamer.capo.client.render;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
 import com.countrygamer.capo.common.Capo;
-import com.countrygamer.capo.common.block.BlockWall;
 import com.countrygamer.capo.common.tileentity.TileEntityWall;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
@@ -34,13 +31,13 @@ public class WallBlockRenderer implements ISimpleBlockRenderingHandler {
 				TileEntityWall tileWall = (TileEntityWall) tEnt;
 				
 				Block camoBlock = tileWall.block;
-				//int camoBlockMeta = tileWall.blockMeta;
-				//Capo.log.info(tileWall.hasCamo + "");
+				// int camoBlockMeta = tileWall.blockMeta;
+				// Capo.log.info(tileWall.hasCamo + "");
 				if (tileWall.hasCamo) {
 					try {
-						//renderer.renderBlockByRenderType(camoBlock, x, y, z);
-						renderer.renderBlockUsingTexture(camoBlock, x, y, z,
-								renderer.getBlockIconFromSideAndMetadata(camoBlock, 0, tileWall.blockMeta));
+						// renderer.renderBlockByRenderType(camoBlock, x, y, z);
+						renderer.renderBlockUsingTexture(camoBlock, x, y, z, renderer
+								.getBlockIconFromSideAndMetadata(camoBlock, 0, tileWall.blockMeta));
 					} catch (Error e) {
 						e.printStackTrace();
 						renderer.renderStandardBlock(block, x, y, z);
@@ -48,10 +45,7 @@ public class WallBlockRenderer implements ISimpleBlockRenderingHandler {
 					return true;
 				}
 				else {
-					//Capo.log.info("Using Texture");
-					IIcon icon = ((BlockWall)Capo.wallBlock).getIcon(0, 0);
-					//renderer.renderBlockByRenderType(Blocks.stone, x, y, z);
-					//renderer.renderBlockUsingTexture(block, x, y, z, icon);
+					// Capo.log.info("Using Texture");
 					renderer.renderStandardBlock(block, x, y, z);
 					return true;
 				}
@@ -59,7 +53,7 @@ public class WallBlockRenderer implements ISimpleBlockRenderingHandler {
 			// Capo.log.info("Not Wall Ent");
 		}
 		// Capo.log.info("Not Wall");
-		renderer.renderStandardBlock(block, x, y, z);
+		// renderer.renderStandardBlock(block, x, y, z);
 		return true;
 	}
 	

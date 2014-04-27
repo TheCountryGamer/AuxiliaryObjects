@@ -12,13 +12,10 @@ public class TileEntityWall extends TileEntityBase {
 	public Block block;
 	public int blockMeta;
 	
+	public int moduleBaseX, moduleBaseY, moduleBaseZ;
+	
 	public TileEntityWall() {
 		this.resetBlockData();
-	}
-	
-	@Override
-	public boolean canUpdate() {
-		return false;
 	}
 	
 	public void resetBlockData() {
@@ -44,6 +41,9 @@ public class TileEntityWall extends TileEntityBase {
 		tagCom.setBoolean("Has_Camo", this.hasCamo);
 		tagCom.setInteger("BlockID", Block.getIdFromBlock(this.block));
 		tagCom.setInteger("BlockMeta", this.blockMeta);
+		tagCom.setInteger("parentX", this.moduleBaseX);
+		tagCom.setInteger("parentY", this.moduleBaseY);
+		tagCom.setInteger("parentZ", this.moduleBaseZ);
 		
 	}
 	
@@ -53,6 +53,9 @@ public class TileEntityWall extends TileEntityBase {
 		this.hasCamo = tagCom.getBoolean("Has_Camo");
 		this.block = Block.getBlockById(tagCom.getInteger("BlockID"));
 		this.blockMeta = tagCom.getInteger("BlockMeta");
+		this.moduleBaseX = tagCom.getInteger("parentX");
+		this.moduleBaseY = tagCom.getInteger("parentY");
+		this.moduleBaseZ = tagCom.getInteger("parentZ");
 		
 	}
 	

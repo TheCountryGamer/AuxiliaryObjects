@@ -13,9 +13,9 @@ public class Reference {
 	public static final String MC_VERSION = "1.7.2";
 	public static final String CHANNEL_NAME = MOD_ID;
 	public static final String SERVER_PROXY_CLASS = "com.countrygamer." + MOD_ID
-			+ ".proxy.ServerProxy";
+			+ ".common.ServerProxy";
 	public static final String CLIENT_PROXY_CLASS = "com.countrygamer." + MOD_ID
-			+ ".proxy.ClientProxy";
+			+ ".client.ClientProxy";
 	
 	public static final int guiInvSack = 0;
 	public static final int guiInvSackRename = 1;

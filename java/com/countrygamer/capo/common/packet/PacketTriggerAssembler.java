@@ -5,7 +5,6 @@ import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 
-import com.countrygamer.capo.common.Capo;
 import com.countrygamer.capo.common.tileentity.TileEntityAssembler;
 import com.countrygamer.core.Base.common.packet.AbstractPacket;
 
@@ -63,7 +62,7 @@ public class PacketTriggerAssembler extends AbstractPacket {
 					tileEnt.loadUpgrades();
 					break;
 				case 1:
-					Capo.log.info("Send Save");
+					//Capo.log.info("Send Save");
 					tileEnt.saveUpgrades();
 					break;
 				default:

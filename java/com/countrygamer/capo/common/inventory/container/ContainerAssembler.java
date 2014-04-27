@@ -5,10 +5,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-import com.countrygamer.capo.common.Capo;
 import com.countrygamer.capo.common.inventory.container.slot.SlotModule;
-import com.countrygamer.capo.common.item.ItemModule;
-import com.countrygamer.capo.common.packet.PacketTriggerAssembler;
 import com.countrygamer.core.Base.common.inventory.ContainerBlockBase;
 import com.countrygamer.core.Base.common.tileentity.TileEntityInventoryBase;
 
@@ -22,10 +19,10 @@ public class ContainerAssembler extends ContainerBlockBase {
 	public void registerSlots(InventoryPlayer invPlayer) {
 		this.addSlotToContainer(new SlotModule(this.tileEnt, 0, 51, 25));
 		
-		this.addSlotToContainer(new Slot(this.tileEnt, 1, 101, 21));
-		this.addSlotToContainer(new Slot(this.tileEnt, 2, 119, 21));
-		this.addSlotToContainer(new Slot(this.tileEnt, 3, 101, 39));
-		this.addSlotToContainer(new Slot(this.tileEnt, 4, 119, 39));
+		this.addSlotToContainer(new Slot(this.tileEnt, 1, 116, 25));
+		this.addSlotToContainer(new Slot(this.tileEnt, 2, 134, 25));
+		this.addSlotToContainer(new Slot(this.tileEnt, 3, 116, 43));
+		this.addSlotToContainer(new Slot(this.tileEnt, 4, 134, 43));
 		
 		this.registerPlayerSlots(invPlayer, 0, 0);
 	}

@@ -33,19 +33,29 @@ public class GuiAssembler extends GuiContainerBlockBase {
 		
 		int x = ((this.width + this.xSize) / 2) - (this.xSize / 2) - 75;
 		this.buttonList.add(this.openSettings = new GuiButton(0, x, 80, 75, 20, "Open Settings"));
+		this.checkSettingsButton();
 		
+	}
+	
+	private void checkSettingsButton() {
+		this.openSettings.enabled = this.tileEnt.getStackInSlot(0) != null;
+	}
+	
+	@Override
+	public void updateScreen() {
+		this.checkSettingsButton();
 	}
 	
 	@Override
 	protected void buttonPress(int id) {
 		if (id == this.openSettings.id) {
 			this.saveUpgrades();
-			// TODO open settings gui
-			Capo.log.info("Sending Packet");
-			PacketOpenAssemblerSettings packet = new PacketOpenAssemblerSettings(
-					this.tileEnt.xCoord, this.tileEnt.yCoord, this.tileEnt.zCoord, false);
-			Capo.packetChannel.sendToServer(packet);
-			Capo.packetChannel.sendToAll(packet);
+			if (this.tileEnt.getStackInSlot(0) != null) {
+				PacketOpenAssemblerSettings packet = new PacketOpenAssemblerSettings(
+						this.tileEnt.xCoord, this.tileEnt.yCoord, this.tileEnt.zCoord, false);
+				Capo.packetChannel.sendToServer(packet);
+				Capo.packetChannel.sendToAll(packet);
+			}
 		}
 	}
 	

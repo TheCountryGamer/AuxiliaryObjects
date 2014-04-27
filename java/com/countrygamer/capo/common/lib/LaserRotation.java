@@ -283,7 +283,7 @@ public class LaserRotation {
 		double tZ = Math.abs(srcZ - targetZ);
 		double distance = Math.sqrt(tX * tX + tZ * tZ);
 		double rotX = Math.floor(Math.atan(tY / distance) * 180 / Math.PI);
-		double rotY = Math.floor(Math.atan(tZ / tX) * 180 / Math.PI);
+		//double rotY = Math.floor(Math.atan(tZ / tX) * 180 / Math.PI);
 		// Capo.log.info("\n\tTX: " + tX + "\n\tTY: " + tY + "\n\tTZ: " + tZ + "\n\tRotX: " + rotX +
 		// "\n\tRotY: " + rotY);
 		
